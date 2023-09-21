@@ -9,7 +9,7 @@ import (
 func CommonController(r *gin.RouterGroup) {
 	// 文件上传接口
 	r.POST("/upload", HandlerFunc(uploadFile))
-	r.GET("/ws", WebSocket)
+	r.GET("/ws/:id", WebSocket)
 }
 
 // 文件上传
