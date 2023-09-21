@@ -1,0 +1,35 @@
+mysql:
+  MaxIdleConn: 10 #最多空闲连接数
+  MaxOpenConn: 100 #最多打开连接数
+  host: 127.0.0.1 #159.75.155.236
+  dbname: sm1 #fqyb #gotest
+  port: 3306
+  user: root #cyfqyb
+  password: cy2466579213
+  EnableFileLogWriter: true #是否启用文件日志
+  logModel: info #日志级别
+  logColorful: false #是否启用彩色日志
+redis:
+  host: 159.75.155.236
+  password: cy2466579213
+  db: 0
+  port: 6379
+token:
+  time: 2 #单位小时
+  secret: cy22232 #密钥
+
+server:
+  port: 8080
+
+log:
+  MaxSize: 1 #单位MB
+  MaxBackups: 3
+  MaxAge: 3 #单位天
+  Compress: false #是否压缩
+
+aliyunOss:
+  accessKeyId: LTAI5tGDfgDFPCnEY8JMfRD8
+  accessKeySecret: 80o204zmNIII8AQoZNpiC4cK92trNW
+  endpoint: https://oss-cn-guangzhou.aliyuncs.com
+  bucket: cyfqyb
+  dir: go/

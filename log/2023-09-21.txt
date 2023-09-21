@@ -1,0 +1,56 @@
+{"level":"ERROR","time":"2023-09-21 09:58:35","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}
+{"level":"ERROR","time":"2023-09-21 10:58:48","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}
+{"level":"ERROR","time":"2023-09-21 10:59:05","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}
+{"level":"INFO","time":"2023-09-21 11:45:16","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 11:45:16","msg":"Server exiting"}
+{"level":"INFO","time":"2023-09-21 11:45:16","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 11:51:17","msg":"Server exiting"}
+{"level":"INFO","time":"2023-09-21 11:51:17","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 11:54:46","msg":"Server exiting"}
+{"level":"INFO","time":"2023-09-21 11:54:46","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 11:59:38","msg":"Server exiting Success"}
+{"level":"INFO","time":"2023-09-21 11:59:38","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 12:26:51","msg":"Server exiting Success"}
+{"level":"INFO","time":"2023-09-21 12:26:51","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 12:28:51","msg":"Server exiting Success"}
+{"level":"INFO","time":"2023-09-21 12:28:51","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 15:27:27","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF05F4ECE583036B1E41C, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 15:32:47","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 15:32:47","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 15:37:29","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 15:37:29","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF2BA4ECE5833329E1F1F, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 15:39:44","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 15:39:44","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF34121D3443236D37220, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 15:41:46","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF3AC28363634314D5C20, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 15:49:55","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF5A4362B11393956B721, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 15:59:36","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF7E94ECE583232A91D24, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 16:02:33","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF89921D3443035888D25, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 16:03:13","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BF8C20D0C6F3333FC2227, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 16:20:52","msg":"阿里云配置map[accesskeyid:LTAI5tGDfgDFPCnEY8JMfRD8 accesskeysecret:80o204zmNIII8AQoZNpiC4cK92trNW bucket:cyfqyb dir:go/ endpoint:https://oss-cn-guangzhou.aliyuncs.com]"}
+{"level":"INFO","time":"2023-09-21 16:22:04","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:22:04","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BFD2D7A1F7F33393DDF28, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 16:22:32","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:22:32","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:22:41","msg":"阿里云配置"}
+{"level":"INFO","time":"2023-09-21 16:23:42","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:23:42","msg":"Failed to upload file, with error: oss: service returned error: StatusCode=400, ErrorCode=InvalidArgument, ErrorMessage=\"Authorization header is invalid.\", RequestId=650BFD8F283636373246E729, Ec=0002-00000063"}
+{"level":"INFO","time":"2023-09-21 16:35:38","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:35:38","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:37:10","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:37:10","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:37:21","msg":"Successfully uploaded file: 99609260_p0.jpg"}
+{"level":"INFO","time":"2023-09-21 16:39:03","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:39:03","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:39:14","msg":"Successfully uploaded file: 99609260_p0.jpg"}
+{"level":"INFO","time":"2023-09-21 16:39:38","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:39:38","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:40:09","msg":"Successfully uploaded file: 99609260_p0.jpg"}
+{"level":"INFO","time":"2023-09-21 16:41:48","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 16:41:48","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 16:42:11","msg":"Successfully uploaded file: 109189182_p0.png"}
+{"level":"INFO","time":"2023-09-21 16:43:56","msg":"Successfully uploaded file: 107770543_p0.jpg"}
+{"level":"INFO","time":"2023-09-21 17:00:11","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 17:00:11","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-21 17:22:58","msg":"Successfully uploaded file: 91767193_p0.png"}
+{"level":"INFO","time":"2023-09-21 17:23:47","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 17:23:47","msg":"服务器停止"}
