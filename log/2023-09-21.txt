@@ -56,3 +56,9 @@
 {"level":"INFO","time":"2023-09-21 17:23:47","msg":"服务器停止"}
 {"level":"INFO","time":"2023-09-21 18:04:39","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-09-21 18:04:39","msg":"服务器停止"}
+{"level":"ERROR","time":"2023-09-21 22:20:50","msg":"data jsonUnmarshal failed:invalid character '}' looking for beginning of object key string"}
+{"level":"INFO","time":"2023-09-21 22:26:32","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 22:26:32","msg":"服务器停止"}
+{"level":"ERROR","time":"2023-09-21 22:26:46","msg":"data jsonUnmarshal failed:invalid character '}' looking for beginning of object key string"}
+{"level":"INFO","time":"2023-09-21 22:32:23","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-21 22:32:23","msg":"服务器停止"}
