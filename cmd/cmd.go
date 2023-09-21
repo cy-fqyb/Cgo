@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"reggie/config"
-	"reggie/global"
-	"reggie/router"
+	"Cgo/config"
+	"Cgo/global"
+	"Cgo/router"
 )
 
 func Start() {

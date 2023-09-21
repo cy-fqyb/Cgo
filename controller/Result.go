@@ -1,8 +1,8 @@
 package controller
 
 import (
+	"Cgo/global"
 	"net/http"
-	"reggie/global"
 
 	"github.com/gin-gonic/gin"
 )

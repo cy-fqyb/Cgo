@@ -1,9 +1,9 @@
 package config
 
 import (
+	"Cgo/global"
 	"fmt"
 	"os"
-	"reggie/global"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"

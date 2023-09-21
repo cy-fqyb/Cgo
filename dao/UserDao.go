@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"reggie/global"
-	"reggie/models"
+	"Cgo/global"
+	"Cgo/models"
 )
 
 type userDao struct{}

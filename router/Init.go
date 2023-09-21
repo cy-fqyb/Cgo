@@ -1,8 +1,8 @@
 package router
 
 import (
-	"reggie/controller"
-	"reggie/middlewares"
+	"Cgo/controller"
+	"Cgo/middlewares"
 
 	"github.com/gin-gonic/gin"
 )

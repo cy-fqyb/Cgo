@@ -1,7 +1,7 @@
 package service
 
 import (
-	"reggie/dao"
+	"Cgo/dao"
 )
 
 type userService struct{}
