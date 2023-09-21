@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"reggie/utils"
+	"Cgo/utils"
 
 	"github.com/gin-gonic/gin"
 )

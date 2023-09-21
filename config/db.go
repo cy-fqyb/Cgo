@@ -1,12 +1,12 @@
 package config
 
 import (
+	"Cgo/global"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
-	"reggie/global"
 	"time"
 
 	"gopkg.in/natefinch/lumberjack.v2"

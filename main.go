@@ -1,7 +1,7 @@
 package main
 
 import (
-	"reggie/cmd"
+	"Cgo/cmd"
 )
 
 func main() {

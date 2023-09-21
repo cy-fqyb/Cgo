@@ -1,8 +1,8 @@
 package config
 
 import (
+	"Cgo/global"
 	"context"
-	"reggie/global"
 
 	"github.com/redis/go-redis/v9"
 )

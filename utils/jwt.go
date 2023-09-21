@@ -1,8 +1,8 @@
 package utils
 
 import (
+	"Cgo/global"
 	"fmt"
-	"reggie/global"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"

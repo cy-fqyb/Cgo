@@ -1,9 +1,9 @@
 package middlewares
 
 import (
+	"Cgo/global"
+	"Cgo/utils"
 	"net/http"
-	"reggie/global"
-	"reggie/utils"
 
 	"github.com/gin-gonic/gin"
 )

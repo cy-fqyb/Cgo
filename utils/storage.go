@@ -1,11 +1,11 @@
 package utils
 
 import (
+	"Cgo/global"
 	"fmt"
 	"mime/multipart"
 	"os"
 	"path"
-	"reggie/global"
 	"strings"
 
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
