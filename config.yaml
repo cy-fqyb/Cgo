@@ -35,4 +35,4 @@ aliyunOss:
   dir: go/
 
 image:
-  quality: 50 #0 到 100
+  quality: 50 #0 到 10
