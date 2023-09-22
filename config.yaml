@@ -26,13 +26,5 @@ log:
   MaxBackups: 3
   MaxAge: 3 #单位天
   Compress: false #是否压缩
-
-aliyunOss:
-  accessKeyId: LTAI5tGDfgDFPCnEY8JMfRD8
-  accessKeySecret: 80o204zmNIII8AQoZNpiC4cK92trNW
-  endpoint: https://oss-cn-guangzhou.aliyuncs.com
-  bucket: cyfqyb
-  dir: go/
-
 image:
   quality: 50 #0 到 10
