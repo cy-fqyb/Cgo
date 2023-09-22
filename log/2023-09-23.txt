@@ -1,3 +1,11 @@
 {"level":"INFO","time":"2023-09-23 02:47:33","msg":"Failed to open file, with error: image: unknown format"}
 {"level":"INFO","time":"2023-09-23 02:54:45","msg":"Failed to upload file, with error: Put \"https://cyfqyb.oss-cn-guangzhou.aliyuncs.com/go%2F319e31ba-1e21-463c-b914-97ad679aaf80.jpg\": read C:\\Users\\pc\\AppData\\Local\\Temp\\compressed_image_2196188807.jpg: file already closed"}
 {"level":"INFO","time":"2023-09-23 02:56:05","msg":"Successfully uploaded file: 7fe2f3896d2642a5a3a92cc0f58c8070.png"}
+{"level":"INFO","time":"2023-09-23 03:45:29","msg":"Successfully uploaded file: 106252599_p0.png"}
+{"level":"INFO","time":"2023-09-23 03:52:09","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 03:52:09","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 03:52:38","msg":"Failed to open file, with error: open : The system cannot find the file specified."}
+{"level":"INFO","time":"2023-09-23 04:05:50","msg":"Successfully uploaded file: 106252599_p0.png"}
+{"level":"INFO","time":"2023-09-23 04:07:10","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 04:07:10","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 04:07:44","msg":"Successfully uploaded file: 106252599_p0.png"}
