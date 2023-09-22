@@ -3,6 +3,11 @@ package utils
 import (
 	"Cgo/global"
 	"fmt"
+	"image"
+	_ "image/gif"
+	"image/jpeg"
+	_ "image/jpeg"
+	_ "image/png"
 	"mime/multipart"
 	"os"
 	"path"
@@ -12,6 +17,17 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
+type multipartFileWrapper struct {
+	*os.File
+}
+
+func (w *multipartFileWrapper) Read(p []byte) (n int, err error) {
+	return w.File.Read(p)
+}
+
+func (w *multipartFileWrapper) Seek(offset int64, whence int) (int64, error) {
+	return w.File.Seek(offset, whence)
+}
 func UploadAliyunOss(file *multipart.FileHeader) string {
 	client, err := oss.New(
 		global.ConfigViper.GetString("aliyunOss.endpoint"),
@@ -21,7 +37,8 @@ func UploadAliyunOss(file *multipart.FileHeader) string {
 		global.Logger.Info(fmt.Sprintf("Failed to create OSS client, with error: %s", err.Error()))
 		os.Exit(-1)
 	}
-	src, err := file.Open()
+	// src, err := file.Open()
+	src, err := CompressImage(file)
 	if err != nil {
 		global.Logger.Info(fmt.Sprintf("Failed to open file, with error: %s", err.Error()))
 		os.Exit(-1)
@@ -39,4 +56,36 @@ func UploadAliyunOss(file *multipart.FileHeader) string {
 	urlEndpoint := strings.TrimPrefix(global.ConfigViper.GetString("aliyunOss.endpoint"), "https://")
 	global.Logger.Info(fmt.Sprintf("Successfully uploaded file: %s", file.Filename))
 	return fmt.Sprintf("https://%s.%s/%s", global.ConfigViper.GetString("aliyunOss.bucket"), urlEndpoint, name)
+}
+
+func CompressImage(fileHeader *multipart.FileHeader) (multipart.File, error) {
+	file, err := fileHeader.Open()
+	if err != nil {
+		global.Logger.Info(fmt.Sprintf("Failed to open file, with error: %s", err.Error()))
+		os.Exit(-1)
+	}
+	defer file.Close()
+	originalImage, _, err := image.Decode(file)
+	if err != nil {
+		return nil, err
+	}
+	// 创建一个临时文件来保存压缩后的图像
+	tempFile, err := os.CreateTemp("", "compressed_image_*.jpg")
+	if err != nil {
+		return nil, err
+	}
+
+	//压缩并保存图像到临时文件
+	if err = jpeg.Encode(tempFile, originalImage, &jpeg.Options{Quality: global.ConfigViper.GetInt("image.quality")}); err != nil {
+		return nil, err
+	}
+	// 创建一个模拟的*multipart.FileHeader
+	// compressedFileHeader := &multipart.FileHeader{
+	// 	Filename: fileHeader.Filename,
+	// 	Size:     os.Stat(tempFile),
+	// 	Header:   make(map[string][]string),
+	// }
+	return &multipartFileWrapper{
+		tempFile,
+	}, err
 }

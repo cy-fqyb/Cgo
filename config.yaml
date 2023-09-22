@@ -33,3 +33,6 @@ aliyunOss:
   endpoint: https://oss-cn-guangzhou.aliyuncs.com
   bucket: cyfqyb
   dir: go/
+
+image:
+  quality: 50 #0 到 100
