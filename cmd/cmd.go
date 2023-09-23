@@ -11,6 +11,8 @@ func Start() {
 	config.InitConfig()
 	//初始化日志组件
 	global.Logger = config.InitLogger()
+	//初始化自定义验证器
+	config.InitValidator()
 	//初始化数据库组件
 	global.DB = config.InitDb()
 	//初始化Redis

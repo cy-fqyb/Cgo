@@ -9,3 +9,18 @@
 {"level":"INFO","time":"2023-09-23 04:07:10","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-09-23 04:07:10","msg":"服务器停止"}
 {"level":"INFO","time":"2023-09-23 04:07:44","msg":"Successfully uploaded file: 106252599_p0.png"}
+{"level":"INFO","time":"2023-09-23 12:29:57","msg":"Successfully uploaded file: paduo2.png"}
+{"level":"INFO","time":"2023-09-23 12:32:27","msg":"Successfully uploaded file: 斗罗之偷取万界系统.txt"}
+{"level":"INFO","time":"2023-09-23 13:05:39","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-09-23 14:19:46","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 14:19:46","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 14:22:54","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 14:22:54","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 14:23:47","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 14:23:47","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 14:27:53","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 14:27:53","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 14:33:37","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 14:33:37","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-23 23:16:22","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-23 23:16:22","msg":"服务器停止"}

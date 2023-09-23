@@ -29,8 +29,6 @@ func UploadAliyunOss(file *multipart.FileHeader) string {
 		os.Exit(-1)
 	}
 	src, err := file.Open()
-	// file, err = CompressImage(file)
-	// src, err := file.Open()
 	if err != nil {
 		global.Logger.Info(fmt.Sprintf("Failed to open file, with error: %s", err.Error()))
 		os.Exit(-1)
@@ -41,15 +39,23 @@ func UploadAliyunOss(file *multipart.FileHeader) string {
 			return
 		}
 	}(src)
+
+	//判断上传的文件类型
+	isImg := isImage(file)
 	bucket, _ := client.Bucket(global.ConfigViper.GetString("aliyunOss.bucket"))
 	fileSuffix := path.Ext(file.Filename)
 	//拼接上传文件的名字并指定上传的路径
 	name := global.ConfigViper.GetString("aliyunOss.dir") + uuid.NewV4().String() + fileSuffix
-	imgData, err := CompressImage(src)
-	if err != nil {
-		global.Logger.Info(fmt.Sprintf("Failed to compress image, with error: %s", err.Error()))
+	if isImg {
+		imgData, err := CompressImage(src)
+		if err != nil {
+			global.Logger.Info(fmt.Sprintf("Failed to compress image, with error: %s", err.Error()))
+		}
+		err = bucket.PutObject(name, bytes.NewReader(imgData))
+	} else {
+		//不是图片的话直接上传
+		err = bucket.PutObject(name, src)
 	}
-	err = bucket.PutObject(name, bytes.NewReader(imgData))
 	if err != nil {
 		global.Logger.Info(fmt.Sprintf("Failed to upload file, with error: %s", err.Error()))
 		os.Exit(-1)
@@ -78,4 +84,11 @@ func CompressImage(file io.Reader) ([]byte, error) {
 	compressedImageData := compressedImageBuffer.Bytes()
 
 	return compressedImageData, nil
+}
+
+func isImage(file *multipart.FileHeader) bool {
+	// // 获取文件的 MIME 类型
+	contentType := file.Header.Get("Content-Type")
+	// 判断 MIME 类型是否以 "image/" 开头
+	return strings.HasPrefix(contentType, "image/")
 }
