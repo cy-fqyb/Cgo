@@ -1,0 +1,54 @@
+
+2023/09/25 13:23:14 D:/golang/Cgo/dao/UserDao.go:15
+[2.688ms] [rows:1] select * from sysuser where UserName ='陈烨'
+
+2023/09/25 13:23:58 D:/golang/Cgo/dao/UserDao.go:21 Error 1054 (42S22): Unknown column 'user_name' in 'field list'
+[23.958ms] [rows:0] INSERT INTO `sysuser` (`user_name`,`password`,`mobile`) VALUES ('枫桥夜泊','','15779035571')
+
+2023/09/25 13:28:58 D:/golang/Cgo/dao/UserDao.go:21 Error 1054 (42S22): Unknown column 'user_name' in 'field list'
+[1.556ms] [rows:0] INSERT INTO `sysuser` (`user_name`,`password`,`mobile`) VALUES ('枫桥夜泊','','15779035571')
+
+2023/09/25 13:31:03 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.users' doesn't exist
+[3.517ms] [rows:0] INSERT INTO `users` (`user_name`,`password`,`mobile`) VALUES ('枫桥夜泊','','15779035571')
+
+2023/09/25 13:38:30 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.user' doesn't exist
+[3.139ms] [rows:0] INSERT INTO `user` (`user_name`,`password`,`mobile`) VALUES ('枫桥夜泊','','15779035571')
+
+2023/09/25 13:39:52 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.users' doesn't exist
+[2.656ms] [rows:0] INSERT INTO `users` (`user_name`,`password`,`mobile`) VALUES ('枫桥夜泊','','15779035571')
+
+2023/09/25 13:55:04 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.users' doesn't exist
+[3.071ms] [rows:0] INSERT INTO `users` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`) VALUES ('枫桥夜泊','','cy@qq.com','男','',0,'2023-09-25 13:55:04.375','2023-09-25 13:55:04.375')
+
+2023/09/25 13:58:26 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.users' doesn't exist
+[2.094ms] [rows:0] INSERT INTO `users` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`) VALUES ('枫桥夜泊','','cy@qq.com','男','',0,'2023-09-25 13:58:26.043','2023-09-25 13:58:26.043')
+
+2023/09/25 13:59:05 D:/golang/Cgo/dao/UserDao.go:21 Error 1146 (42S02): Table 'cgo.users' doesn't exist
+[2.287ms] [rows:0] INSERT INTO `users` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`) VALUES ('枫桥夜泊','','cy@qq.com','男','',0,'2023-09-25 13:59:05.586','2023-09-25 13:59:05.586')
+
+2023/09/25 13:59:37 D:/golang/Cgo/dao/UserDao.go:21 Error 1364 (HY000): Field 'id' doesn't have a default value
+[1.584ms] [rows:0] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`) VALUES ('枫桥夜泊','','cy@qq.com','男','',0,'2023-09-25 13:59:37.79','2023-09-25 13:59:37.79')
+
+2023/09/25 14:00:12 D:/golang/Cgo/dao/UserDao.go:21
+[4.080ms] [rows:1] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`,`id`) VALUES ('枫桥夜泊','','cy@qq.com','男','',0,'2023-09-25 14:00:12.503','2023-09-25 14:00:12.503',1)
+
+2023/09/25 15:00:50 D:/golang/Cgo/dao/UserDao.go:17
+[2.409ms] [rows:1] SELECT * FROM `user` LIMIT 1
+
+2023/09/25 15:02:14 D:/golang/Cgo/dao/UserDao.go:17
+[1.641ms] [rows:1] SELECT * FROM `user` LIMIT 1
+
+2023/09/25 15:09:20 D:/golang/Cgo/dao/UserDao.go:17
+[1.633ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '1' AND `user`.`email` = '15779035571' AND `user`.`sex` = '男'
+
+2023/09/25 15:23:05 D:/golang/Cgo/dao/UserDao.go:18
+[1.856ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '1' AND `user`.`email` = '15779035571' AND `user`.`sex` = '男'
+
+2023/09/25 15:25:08 D:/golang/Cgo/dao/UserDao.go:18
+[2.562ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '陈烨' AND `user`.`email` = '15779035571' AND `user`.`sex` = '男'
+
+2023/09/25 15:25:20 D:/golang/Cgo/dao/UserDao.go:18
+[1.557ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '陈烨' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'
+
+2023/09/25 15:27:05 D:/golang/Cgo/dao/UserDao.go:18
+[1.907ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'

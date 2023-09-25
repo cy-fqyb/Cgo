@@ -1,0 +1,9 @@
+
+2023/09/24 03:50:20 D:/golang/Cgo/dao/UserDao.go:15
+[2.905ms] [rows:1] select * from sysuser where UserName ='陈烨'
+
+2023/09/24 03:57:47 D:/golang/Cgo/dao/UserDao.go:15
+[1.286ms] [rows:1] select * from sysuser where UserName ='陈烨'
+
+2023/09/24 18:49:09 D:/golang/Cgo/dao/UserDao.go:15
+[4.834ms] [rows:1] select * from sysuser where UserName ='陈烨'

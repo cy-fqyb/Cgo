@@ -2,6 +2,7 @@ package router
 
 import (
 	"Cgo/global"
+	"Cgo/middlewares"
 	"context"
 	"fmt"
 	"net/http"
@@ -20,6 +21,7 @@ func InitRouter() {
 	}
 	r := gin.Default()
 	// r.Use(middlewares.GinLogger(global.Logger), middlewares.GinRecovery(global.Logger, true))
+	r.Use(middlewares.Cors())
 	//静态资源
 	InitStatic(r)
 	//公共路由组

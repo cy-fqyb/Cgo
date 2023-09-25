@@ -13,6 +13,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+	"gorm.io/gorm/schema"
 )
 
 // 初始化数据库连接
@@ -36,6 +37,11 @@ func InitDb() *gorm.DB {
 	if db, err := gorm.Open(mysql.New(mysqlConfig), &gorm.Config{
 		DisableForeignKeyConstraintWhenMigrating: true,
 		Logger:                                   getGormLogger(),
+		NamingStrategy: schema.NamingStrategy{
+			// TablePrefix:   "f_",  // 表名前缀
+			SingularTable: global.ConfigViper.GetBool("mysql.SingularTable"), // 单数表名
+			NoLowerCase:   false,                                             // 关闭小写转换
+		},
 	}); err != nil {
 		global.Logger.Error("Mysql connect failed", err)
 		return nil

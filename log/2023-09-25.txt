@@ -1,0 +1,37 @@
+{"level":"INFO","time":"2023-09-25 10:16:51","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 10:16:51","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 10:24:09","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 10:24:09","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 10:55:52","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 10:55:52","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 11:08:23","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 11:08:23","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 11:10:31","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 11:10:31","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 11:21:49","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 11:21:49","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 11:28:07","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 11:28:07","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 13:23:58","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:28:58","msg":"Error 1054 (42S22): Unknown column 'user_name' in 'field list'"}
+{"level":"INFO","time":"2023-09-25 13:28:58","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:31:03","msg":"Error 1146 (42S02): Table 'cgo.users' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:31:03","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:38:30","msg":"Error 1146 (42S02): Table 'cgo.user' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:38:30","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:39:52","msg":"Error 1146 (42S02): Table 'cgo.users' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:39:52","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:54:28","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:55:04","msg":"Error 1146 (42S02): Table 'cgo.users' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:55:04","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:58:16","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 13:58:16","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 13:58:26","msg":"Error 1146 (42S02): Table 'cgo.users' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:58:26","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:59:05","msg":"Error 1146 (42S02): Table 'cgo.users' doesn't exist"}
+{"level":"INFO","time":"2023-09-25 13:59:05","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 13:59:28","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 13:59:28","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 13:59:37","msg":"Error 1364 (HY000): Field 'id' doesn't have a default value"}
+{"level":"INFO","time":"2023-09-25 13:59:37","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 14:00:12","msg":"token验证成功"}
