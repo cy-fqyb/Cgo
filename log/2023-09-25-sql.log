@@ -52,3 +52,12 @@
 
 2023/09/25 15:27:05 D:/golang/Cgo/dao/UserDao.go:18
 [1.907ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'
+
+2023/09/25 18:54:53 /root/cy/go/Cgo/dao/UserDao.go:18 Error 1146 (42S02): Table 'fqyb.user' doesn't exist
+[17.417ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'
+
+2023/09/25 18:56:10 /root/cy/go/Cgo/dao/UserDao.go:18
+[1.203ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'
+
+2023/09/25 19:08:36 /root/cy/go/Cgo/dao/UserDao.go:18
+[2.046ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'

@@ -35,3 +35,15 @@
 {"level":"INFO","time":"2023-09-25 13:59:37","msg":"Error 1364 (HY000): Field 'id' doesn't have a default value"}
 {"level":"INFO","time":"2023-09-25 13:59:37","msg":"token验证成功"}
 {"level":"INFO","time":"2023-09-25 14:00:12","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-25 18:52:27","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 18:52:27","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 19:00:19","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-09-25 19:02:01","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-09-25 19:04:20","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 19:04:20","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-25 19:04:31","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-09-25 19:04:34","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-09-25 19:07:54","msg":"websocket:有连接断开,现有连接数:1"}
+{"level":"INFO","time":"2023-09-25 19:09:21","msg":"Successfully uploaded file: 107512607_p0.jpg"}
+{"level":"INFO","time":"2023-09-25 19:43:08","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-25 19:43:08","msg":"服务器停止"}
