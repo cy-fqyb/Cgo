@@ -31,3 +31,15 @@ func (userDao) Register(user models.User) bool {
 		return false
 	}
 }
+
+// 更新用户数据
+func (userDao) Update(user models.User) error {
+	if r := global.DB.Where(map[string]any{
+		"name":  user.Name,
+		"email": user.Email,
+	}).Updates(user); r.RowsAffected > 0 {
+		return nil
+	} else {
+		return errors.New("更新失败")
+	}
+}

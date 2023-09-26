@@ -1,0 +1,19 @@
+{"level":"INFO","time":"2023-09-26 10:18:44","msg":"Error 1364 (HY000): Field 'id' doesn't have a default value"}
+{"level":"INFO","time":"2023-09-26 11:00:06","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:00:06","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:02:18","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:02:18","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:03:55","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:03:55","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:12:11","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:12:11","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:29:23","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:29:23","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:32:45","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:32:45","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:33:44","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-26 11:36:10","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:36:10","msg":"服务器停止"}
+{"level":"INFO","time":"2023-09-26 11:36:20","msg":"token验证成功"}
+{"level":"INFO","time":"2023-09-26 11:39:32","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-09-26 11:39:32","msg":"服务器停止"}

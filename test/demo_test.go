@@ -1,6 +1,7 @@
 package test
 
 import (
+	"Cgo/utils"
 	"fmt"
 	"github.com/spf13/viper"
 	"os"
@@ -45,4 +46,8 @@ func TestOss(t *testing.T) {
 		fmt.Println("Error:", err)
 		os.Exit(-1)
 	}
+}
+
+func TestMdt(t *testing.T) {
+	println(utils.Md5("zs"))
 }

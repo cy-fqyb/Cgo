@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"Cgo/dto"
 	"Cgo/models"
 	"Cgo/service"
 	"Cgo/utils"
@@ -12,6 +13,7 @@ func CommonController(r *gin.RouterGroup) {
 	// 文件上传接口
 	r.POST("/upload", HandlerFunc(uploadFile))
 	r.POST("/login", HandlerFunc(login))
+	r.POST("/register", HandlerFunc(register))
 	r.GET("/ws/:id", WebSocket)
 }
 
@@ -44,4 +46,17 @@ func login(c *gin.Context) Result {
 		"user":  user,
 		"token": token,
 	})
+}
+
+// register 用户注册
+func register(ctx *gin.Context) Result {
+	var userDto dto.UserDto
+	if err := ctx.ShouldBindJSON(&userDto); err != nil {
+		return R.Fail(err.Error())
+	}
+	err := service.UserService.Register(userDto)
+	if err != nil {
+		return R.Fail(err.Error())
+	}
+	return R.Success("用户注册成功")
 }

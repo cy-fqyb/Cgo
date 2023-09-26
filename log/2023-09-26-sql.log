@@ -1,0 +1,30 @@
+
+2023/09/26 10:18:44 D:/golang/Cgo/dao/UserDao.go:27 Error 1364 (HY000): Field 'id' doesn't have a default value
+[26.880ms] [rows:0] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`) VALUES ('李四','d41d8cd98f00b204e9800998ecf8427e','2466@qq.com','','',0,'2023-09-26 10:18:44.356','2023-09-26 10:18:44.356')
+
+2023/09/26 11:00:21 D:/golang/Cgo/dao/UserDao.go:27
+[6.833ms] [rows:1] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`,`id`) VALUES ('李四','d41d8cd98f00b204e9800998ecf8427e','2466@qq.com','','',0,'2023-09-26 11:00:21.916','2023-09-26 11:00:21.916',480109600499040737)
+
+2023/09/26 11:02:28 D:/golang/Cgo/dao/UserDao.go:27
+[5.071ms] [rows:1] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`,`id`) VALUES ('李四','d41d8cd98f00b204e9800998ecf8427e','2466@qq.com','','',0,'2023-09-26 11:02:28.376','2023-09-26 11:02:28.376',480109812663714273)
+
+2023/09/26 11:04:39 D:/golang/Cgo/dao/UserDao.go:27
+[22.382ms] [rows:1] INSERT INTO `user` (`name`,`password`,`email`,`sex`,`avatar`,`status`,`create_time`,`update_time`,`id`) VALUES ('李四','e10adc3949ba59abbe56e057f20f883e','2466@qq.com','','',0,'2023-09-26 11:04:39.59','2023-09-26 11:04:39.59',480110032797565409)
+
+2023/09/26 11:10:45 D:/golang/Cgo/dao/UserDao.go:18
+[3.200ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`email` = 'cy@qq.com' AND `user`.`sex` = '男'
+
+2023/09/26 11:12:38 D:/golang/Cgo/dao/UserDao.go:18
+[2.600ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '枫桥夜泊' AND `user`.`password` = '123456' AND `user`.`email` = 'cy@qq.com'
+
+2023/09/26 11:31:12 D:/golang/Cgo/dao/UserDao.go:18
+[1.614ms] [rows:0] SELECT * FROM `user` WHERE `user`.`name` = '李四' AND `user`.`password` = '123456' AND `user`.`email` = '2466@qq.com'
+
+2023/09/26 11:32:58 D:/golang/Cgo/dao/UserDao.go:18
+[1.593ms] [rows:1] SELECT * FROM `user` WHERE `user`.`name` = '李四' AND `user`.`password` = 'e10adc3949ba59abbe56e057f20f883e' AND `user`.`email` = '2466@qq.com'
+
+2023/09/26 11:33:44 D:/golang/Cgo/dao/UserDao.go:37
+[2.688ms] [rows:0] UPDATE `user` SET `name`='枫桥夜泊',`password`='123456',`email`='cy@qq.com',`update_time`='2023-09-26 11:33:44.194' WHERE `user`.`name` = '枫桥夜泊' AND `user`.`password` = '123456' AND `user`.`email` = 'cy@qq.com'
+
+2023/09/26 11:36:20 D:/golang/Cgo/dao/UserDao.go:40
+[24.616ms] [rows:1] UPDATE `user` SET `name`='枫桥夜泊',`password`='123456',`email`='cy@qq.com',`update_time`='2023-09-26 11:36:20.059' WHERE `email` = 'cy@qq.com' AND `name` = '枫桥夜泊'
