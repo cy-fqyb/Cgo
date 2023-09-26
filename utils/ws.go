@@ -3,9 +3,10 @@ package utils
 import (
 	"Cgo/global"
 	"encoding/json"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"net/http"
 )
 
 type ws struct {
@@ -59,7 +60,7 @@ func (s *ws) Socket(ctx *gin.Context) {
 			return
 		}
 		var users = []string{"1", "2"}
-		s.sendArr(users, map[string]any{"msg": "大家好"})
+		s.sendArr(users, messageData)
 	}
 }
 
