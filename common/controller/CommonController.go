@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"Cgo/dto"
-	"Cgo/models"
-	"Cgo/service"
+	"Cgo/backend/dto"
+	"Cgo/backend/models"
+	"Cgo/backend/service"
 	"Cgo/utils"
 
 	"github.com/gin-gonic/gin"
