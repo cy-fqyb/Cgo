@@ -8,3 +8,14 @@
 {"level":"INFO","time":"2023-11-19 09:07:48","msg":"服务器停止"}
 {"level":"INFO","time":"2023-11-19 09:10:56","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-11-19 09:10:56","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-19 09:49:50","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-19 09:49:50","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-19 19:03:23","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-19 19:10:53","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-19 19:28:46","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-19 19:28:46","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-19 22:28:18","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-19 22:28:18","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-19 22:40:49","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-19 22:40:49","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-19 22:42:44","msg":"Shutdown Server ..."}

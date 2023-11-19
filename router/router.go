@@ -1,6 +1,7 @@
 package router
 
 import (
+	_ "Cgo/docs"
 	"Cgo/global"
 	"Cgo/middlewares"
 	"context"
@@ -12,6 +13,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func InitRouter() {
@@ -20,6 +23,7 @@ func InitRouter() {
 		port = 8080
 	}
 	r := gin.Default()
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	// r.Use(middlewares.GinLogger(global.Logger), middlewares.GinRecovery(global.Logger, true))
 	r.Use(middlewares.Cors())
 	//静态资源

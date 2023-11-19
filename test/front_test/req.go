@@ -37,3 +37,5 @@ func Req(url string, method string, body io.Reader) {
 		return
 	}
 }
+
+//写一个函数用来发送POST请求
