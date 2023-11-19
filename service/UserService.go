@@ -53,3 +53,13 @@ func Update(user models.User) error {
 		return nil
 	}
 }
+
+// 删除用户
+func Delete(id uint64) error {
+	err := dao.UserDao.Delete(id)
+	if err != nil {
+		return err
+	} else {
+		return nil
+	}
+}

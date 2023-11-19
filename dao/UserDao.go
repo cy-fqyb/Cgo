@@ -43,3 +43,12 @@ func (userDao) Update(user models.User) error {
 		return errors.New("更新失败")
 	}
 }
+
+// 删除用户
+func (userDao) Delete(id uint64) error {
+	if r := global.DB.Where("id =?", id).Delete(&models.User{}); r.RowsAffected > 0 {
+		return nil
+	} else {
+		return errors.New("删除失败")
+	}
+}

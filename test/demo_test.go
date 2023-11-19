@@ -1,12 +1,21 @@
+/*
+ * @Author: cyfqyb
+ * @Date: 2023-09-19 17:54:30
+ * @LastEditors: cyfqyb cy15770703229@163.com
+ * @LastEditTime: 2023-10-29 00:49:58
+ * @FilePath: \Cgo\test\demo_test.go
+ * @Description: 介绍
+ */
 package test
 
 import (
 	"Cgo/utils"
 	"fmt"
-	"github.com/spf13/viper"
 	"os"
 	"path"
 	"testing"
+
+	"github.com/spf13/viper"
 
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	uuid "github.com/satori/go.uuid"
@@ -50,4 +59,8 @@ func TestOss(t *testing.T) {
 
 func TestMdt(t *testing.T) {
 	println(utils.Md5("zs"))
+}
+
+func TestDemo2(t *testing.T) {
+	fmt.Println(utils.CreateUserId())
 }
