@@ -1,8 +1,9 @@
 package router
 
 import (
-	"Cgo/controller"
-	"Cgo/middlewares"
+	backendRouter "Cgo/backend/router"
+	"Cgo/common/controller"
+	frontRouter "Cgo/front/router"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,5 +11,6 @@ import (
 // InitRouterList 创建并初始化路由分组
 func InitRouterList(r *gin.Engine) {
 	controller.CommonController(r.Group("/common"))
-	controller.UserController(r.Group("/user", middlewares.JWTAuth()))
+	backendRouter.Init(r.Group("/backend"))
+	frontRouter.Init(r.Group("/front"))
 }
