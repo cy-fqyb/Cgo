@@ -1,12 +1,79 @@
 definitions:
-  common.Result:
+  common.RT-array_models_Users:
     properties:
       code:
         type: integer
-      data: {}
-      errs: {}
+      data:
+        items:
+          $ref: '#/definitions/models.Users'
+        type: array
       msg:
         type: string
+    type: object
+  common.RT-models_Users:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.Users'
+      msg:
+        type: string
+    type: object
+  common.RT-string:
+    properties:
+      code:
+        type: integer
+      data:
+        type: string
+      msg:
+        type: string
+    type: object
+  dto.UserLoginDto:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  dto.WsDto:
+    properties:
+      msg:
+        type: string
+      to_id:
+        type: integer
+      type:
+        type: string
+    type: object
+  models.Users:
+    properties:
+      avatar:
+        type: string
+      create_time:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      sex:
+        type: string
+      status:
+        type: integer
+      synopsis:
+        type: string
+      update_time:
+        type: string
+    required:
+    - email
+    - name
+    - password
+    - sex
     type: object
 host: localhost:8080
 info:
@@ -15,26 +82,75 @@ info:
   title: Im在线通信系统接口文档
   version: 1.0 版本
 paths:
-  /front/user/login:
+  /front/common/ws/{id}:
     get:
       consumes:
       - application/json
-      description: user login
+      description: websocket
       parameters:
-      - description: Id
-        in: query
-        name: Id
+      - description: 用户id
+        in: path
+        name: id
         required: true
-        type: integer
+        type: string
+      - description: 消息体
+        in: body
+        name: msg
+        required: true
+        schema:
+          $ref: '#/definitions/dto.WsDto'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/common.Result'
+            type: string
+      summary: websocket
+      tags:
+      - 前端用户接口
+  /front/user/getUserFriends:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户好友
+      parameters:
+      - description: 用户id
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-array_models_Users'
+      summary: 获取用户好友
+      tags:
+      - 前端用户接口
+  /front/user/login:
+    post:
+      consumes:
+      - application/json
+      description: user login
+      parameters:
+      - description: Id
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserLoginDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-models_Users'
         "400":
-          description: err_code：10002 参数错误； err_code：10003 校验错误
+          description: Bad Request
           schema:
             type: string
       summary: 用户登录接口
@@ -44,20 +160,21 @@ paths:
     post:
       consumes:
       - application/json
-      description: user register
+      description: 用户注册接口
       parameters:
-      - description: Id
-        in: query
-        name: Id
+      - description: 注册用户的信息
+        in: body
+        name: user
         required: true
-        type: integer
+        schema:
+          $ref: '#/definitions/models.Users'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/common.Result'
+            $ref: '#/definitions/common.RT-string'
       summary: 用户注册接口
       tags:
       - 前端用户接口

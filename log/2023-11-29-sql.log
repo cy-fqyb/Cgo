@@ -1,0 +1,21 @@
+
+2023/11/29 01:06:09 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[477.512ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:06:09.802','2023-11-29 01:06:09.802')
+
+2023/11/29 01:07:02 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[483.120ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:07:02.707','2023-11-29 01:07:02.707')
+
+2023/11/29 01:16:00 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[466.578ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:16:00.517','2023-11-29 01:16:00.517')
+
+2023/11/29 01:17:14 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[507.416ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:17:14.319','2023-11-29 01:17:14.319')
+
+2023/11/29 01:24:35 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[492.913ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:24:35.033','2023-11-29 01:24:35.033')
+
+2023/11/29 01:27:11 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[457.671ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻二货','1','2023-11-29 01:27:11.321','2023-11-29 01:27:11.321')
+
+2023/11/29 01:28:14 D:/golang/Cgo/front/dao/UserDao.go:34 SLOW SQL >= 200ms
+[354.775ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')

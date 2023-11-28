@@ -1,0 +1,102 @@
+
+2023/11/21 19:19:13 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[302.238ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:20:18 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[293.842ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:20:21 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[272.174ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:21:47 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[268.500ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com1' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:22:17 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[272.032ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com1' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:23:35 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[262.721ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com2' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:24:26 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[263.880ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com3' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:43:25 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[276.179ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:44:53 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[270.615ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:47:19 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[308.642ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:07 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[321.689ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:08 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[307.337ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:09 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[300.105ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:10 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[295.592ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:11 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[300.390ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:12 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[300.930ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:13 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[270.831ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 19:48:31 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[302.218ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 20:21:58 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[304.418ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 20:22:09 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[308.145ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:18:46 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[272.442ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:21:47 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[1100.608ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:21:52 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[751.273ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:22:16 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[637.985ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:22:18 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[295.905ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:24:38 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[254.447ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = 'hongpu8192' AND `users`.`email` = 'hongpu@hongpucorp.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:24:44 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[290.541ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = 'hongpu8192' AND `users`.`email` = 'hongpu@hongpucorp.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 22:28:03 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[332.218ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = 'hongpu8192' AND `users`.`email` = 'hongpu@hongpucorp.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 23:37:05 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[580.991ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = 'hongpu8192' AND `users`.`email` = 'hongpu@hongpucorp.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 23:37:08 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[657.606ms] [rows:0] SELECT * FROM `users` WHERE `users`.`password` = 'hongpu8192' AND `users`.`email` = 'hongpu@hongpucorp.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/21 23:57:07 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[284.625ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/22 00:04:26 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[323.070ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/22 00:05:35 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[277.139ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/22 00:06:35 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[281.247ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1

@@ -8,8 +8,81 @@
     },
     "host": "localhost:8080",
     "paths": {
-        "/front/user/login": {
+        "/front/common/ws/{id}": {
             "get": {
+                "description": "websocket",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "websocket",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "消息体",
+                        "name": "msg",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.WsDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/getUserFriends": {
+            "get": {
+                "description": "获取用户好友",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "获取用户好友",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-array_models_Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/login": {
+            "post": {
                 "description": "user login",
                 "consumes": [
                     "application/json"
@@ -23,22 +96,24 @@
                 "summary": "用户登录接口",
                 "parameters": [
                     {
-                        "type": "integer",
                         "description": "Id",
-                        "name": "Id",
-                        "in": "query",
-                        "required": true
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserLoginDto"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/common.Result"
+                            "$ref": "#/definitions/common.RT-models_Users"
                         }
                     },
                     "400": {
-                        "description": "err_code：10002 参数错误； err_code：10003 校验错误",
+                        "description": "Bad Request",
                         "schema": {
                             "type": "string"
                         }
@@ -48,7 +123,7 @@
         },
         "/front/user/register": {
             "post": {
-                "description": "user register",
+                "description": "用户注册接口",
                 "consumes": [
                     "application/json"
                 ],
@@ -61,18 +136,20 @@
                 "summary": "用户注册接口",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "description": "Id",
-                        "name": "Id",
-                        "in": "query",
-                        "required": true
+                        "description": "注册用户的信息",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/common.Result"
+                            "$ref": "#/definitions/common.RT-string"
                         }
                     }
                 }
@@ -80,15 +157,117 @@
         }
     },
     "definitions": {
-        "common.Result": {
+        "common.RT-array_models_Users": {
             "type": "object",
             "properties": {
                 "code": {
                     "type": "integer"
                 },
-                "data": {},
-                "errs": {},
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Users"
+                    }
+                },
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.RT-models_Users": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.Users"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.RT-string": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserLoginDto": {
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.WsDto": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                },
+                "to_id": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Users": {
+            "type": "object",
+            "required": [
+                "email",
+                "name",
+                "password",
+                "sex"
+            ],
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "create_time": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "synopsis": {
+                    "type": "string"
+                },
+                "update_time": {
                     "type": "string"
                 }
             }

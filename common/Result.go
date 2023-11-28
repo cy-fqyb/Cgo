@@ -14,6 +14,11 @@ type Result struct {
 	Data interface{} `json:"data"`
 	Err  error       `json:"errs"`
 }
+type RT[T any] struct {
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+	Data T      `json:"data"`
+}
 
 func (r *Result) Success(data any) Result {
 	return Result{Code: 1, Msg: "ok", Data: data}

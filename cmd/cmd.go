@@ -4,6 +4,7 @@ import (
 	"Cgo/config"
 	"Cgo/global"
 	"Cgo/router"
+	"context"
 )
 
 func Start() {
@@ -22,5 +23,9 @@ func Start() {
 }
 
 func End() {
+	if result, err := global.Rdb.Del(context.Background(), "online").Result(); err == nil {
+		global.Logger.Info("在线用户连接id删除成功，删除个数为:", result)
+	}
+
 	global.Logger.Info("服务器停止")
 }

@@ -3,6 +3,7 @@ package utils
 import (
 	"crypto/md5"
 	"fmt"
+
 	"github.com/sony/sonyflake"
 )
 
@@ -21,7 +22,7 @@ func IsSame(password, md5Password string) bool {
 func CreateUserId() uint64 {
 	flake := sonyflake.NewSonyflake(sonyflake.Settings{})
 	if id, err := flake.NextID(); err != nil {
-		fmt.Println("Failed to generate ID: %s\n", err)
+		fmt.Printf("Failed")
 		return 0
 	} else {
 		return id

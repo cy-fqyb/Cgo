@@ -1,0 +1,79 @@
+{"level":"INFO","time":"2023-11-28 10:13:23","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 10:13:23","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-28 10:34:07","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 10:34:07","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-28 14:35:27","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 14:36:27","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 14:40:58","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 14:42:57","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 14:52:16","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 14:53:22","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 14:54:09","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 15:00:31","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 15:01:14","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 15:07:17","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"ERROR","time":"2023-11-28 15:07:19","msg":"data jsonUnmarshal failed:invalid character '\"' after object key:value pair"}
+{"level":"INFO","time":"2023-11-28 15:07:19","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 15:08:13","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 15:09:36","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 15:12:33","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 15:12:37","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 15:26:29","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 15:26:29","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-28 17:06:53","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:07:10","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:08:38","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:08:50","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:09:04","msg":"websocket:有连接断开,现有连接数:3"}
+{"level":"INFO","time":"2023-11-28 17:09:34","msg":"websocket:有连接断开,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:11:22","msg":"websocket:有新的连接,现有连接数:3"}
+{"level":"INFO","time":"2023-11-28 17:11:34","msg":"websocket:有新的连接,现有连接数:4"}
+{"level":"INFO","time":"2023-11-28 17:12:26","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:13:42","msg":"websocket:有新的连接,现有连接数:4"}
+{"level":"INFO","time":"2023-11-28 17:14:07","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:18:34","msg":"websocket:有新的连接,现有连接数:3"}
+{"level":"INFO","time":"2023-11-28 17:19:21","msg":"websocket:有新的连接,现有连接数:4"}
+{"level":"INFO","time":"2023-11-28 17:21:11","msg":"websocket:有新的连接,现有连接数:5"}
+{"level":"INFO","time":"2023-11-28 17:21:23","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 17:21:23","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-28 17:21:48","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:24:12","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:24:33","msg":"websocket:有连接断开,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:35:31","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:35:47","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:35:51","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:35:54","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:36:57","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:37:02","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:37:20","msg":"websocket:有连接断开,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:37:24","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:41:48","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:42:00","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:43:51","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:43:53","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:45:28","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:45:30","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:48:15","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:48:16","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:49:34","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:50:45","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:51:32","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:51:34","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:52:12","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:52:15","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:55:08","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:55:11","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 17:55:15","msg":"websocket:有连接断开,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:55:17","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:55:48","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 17:55:48","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-28 17:56:02","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 17:56:04","msg":"websocket:有连接断开,现有连接数:0"}
+{"level":"INFO","time":"2023-11-28 17:59:05","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 18:00:23","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 18:00:59","msg":"websocket:有新的连接,现有连接数:1"}
+{"level":"INFO","time":"2023-11-28 18:01:03","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-28 18:14:03","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28 18:14:03","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-29 01:05:36","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-11-29 01:05:39","msg":"websocket:有连接断开,现有连接数:1"}

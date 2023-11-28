@@ -1,0 +1,66 @@
+
+2023/11/28 10:12:54 D:/golang/Cgo/front/dao/UserDao.go:36 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT friend_id FROM `users` WHERE `user_id` = ?' at line 1
+[1553.154ms] [rows:0] SELECT * FROM `users` WHERE id IN SELECT friend_id FROM `users` WHERE `user_id` = '1' 
+
+2023/11/28 10:15:55 D:/golang/Cgo/front/dao/UserDao.go:36 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT friend_id FROM `users` WHERE `user_id` = ?' at line 1
+[2243.770ms] [rows:0] SELECT * FROM `users` WHERE id IN SELECT friend_id FROM `users` WHERE `user_id` = '1' 
+
+2023/11/28 10:18:02 D:/golang/Cgo/front/dao/UserDao.go:34 Error 1146 (42S02): Table 'cgo.user_friends' doesn't exist
+[1160.870ms] [rows:0] SELECT * FROM `users` WHERE id in (select friend_id from user_friends where user_id = '1')
+
+2023/11/28 10:18:38 D:/golang/Cgo/front/dao/UserDao.go:34
+[172.213ms] [rows:1] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/11/28 10:20:11 D:/golang/Cgo/front/dao/UserDao.go:34 SLOW SQL >= 200ms
+[1964.741ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/11/28 10:24:06 D:/golang/Cgo/front/dao/UserDao.go:34 SLOW SQL >= 200ms
+[780.017ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/11/28 10:27:02 D:/golang/Cgo/front/dao/UserDao.go:34 SLOW SQL >= 200ms
+[1810.483ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/11/28 13:31:32 D:/golang/Cgo/front/dao/UserDao.go:34
+[173.341ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/11/28 14:41:10 D:/golang/Cgo/utils/ws.go:75 Error 1146 (42S02): Table 'cgo.message' doesn't exist
+[746.351ms] [rows:0] INSERT INTO `message` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('','1','2','我叫张三','1','2023-11-28 14:41:10.118','2023-11-28 14:41:10.118')
+
+2023/11/28 14:42:59 D:/golang/Cgo/utils/ws.go:75 SLOW SQL >= 200ms
+[210.242ms] [rows:1] INSERT INTO `msg` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('','1','2','我叫张三','1','2023-11-28 14:42:59.841','2023-11-28 14:42:59.841')
+
+2023/11/28 14:43:43 D:/golang/Cgo/utils/ws.go:75 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[1992.997ms] [rows:0] INSERT INTO `msg` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('','1','2','你是个傻逼','1','2023-11-28 14:43:43.677','2023-11-28 14:43:43.677')
+
+2023/11/28 14:44:21 D:/golang/Cgo/utils/ws.go:75 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[826.166ms] [rows:0] INSERT INTO `msg` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('','1','2','你是个傻逼','1','2023-11-28 14:44:20.94','2023-11-28 14:44:20.94')
+
+2023/11/28 14:52:19 D:/golang/Cgo/utils/ws.go:75 Error 1366 (HY000): Incorrect integer value: 'c4ca4238a0b923820dcc509a6f75849b' for column 'id' at row 1
+[1878.316ms] [rows:0] INSERT INTO `msg` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('c4ca4238a0b923820dcc509a6f75849b','1','2','你是个傻逼','1','2023-11-28 14:52:19.57','2023-11-28 14:52:19.57')
+
+2023/11/28 14:53:26 D:/golang/Cgo/utils/ws.go:75 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[227.598ms] [rows:0] INSERT INTO `msg` (`id`,`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('','1','2','你是个傻逼','1','2023-11-28 14:53:26.279','2023-11-28 14:53:26.279')
+
+2023/11/28 14:54:11 D:/golang/Cgo/utils/ws.go:75 SLOW SQL >= 200ms
+[209.173ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼','1','2023-11-28 14:54:11.885','2023-11-28 14:54:11.885')
+
+2023/11/28 14:54:39 D:/golang/Cgo/utils/ws.go:75 SLOW SQL >= 200ms
+[796.429ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻','1','2023-11-28 14:54:39.304','2023-11-28 14:54:39.304')
+
+2023/11/28 15:09:43 D:/golang/Cgo/utils/ws.go:84 SLOW SQL >= 200ms
+[1790.720ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻','1','2023-11-28 15:09:43.52','2023-11-28 15:09:43.52')
+
+2023/11/28 15:12:46 D:/golang/Cgo/utils/ws.go:84 SLOW SQL >= 200ms
+[2749.939ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻','1','2023-11-28 15:12:46.512','2023-11-28 15:12:46.512')
+
+2023/11/28 15:12:58 D:/golang/Cgo/utils/ws.go:84 SLOW SQL >= 200ms
+[1606.060ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-28 15:12:58.42','2023-11-28 15:12:58.42')
+
+2023/11/28 17:52:19 D:/golang/Cgo/utils/ws.go:83 SLOW SQL >= 200ms
+[1289.575ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-28 17:52:19.765','2023-11-28 17:52:19.765')
+
+2023/11/28 18:01:07 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[1337.190ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-28 18:01:07.847','2023-11-28 18:01:07.847')
+
+2023/11/29 01:05:39 D:/golang/Cgo/utils/ws.go:86 SLOW SQL >= 200ms
+[508.186ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-11-29 01:05:39.307','2023-11-29 01:05:39.307')

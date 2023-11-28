@@ -1,7 +1,9 @@
 package utils
 
 import (
+	"Cgo/front/models"
 	"Cgo/global"
+	"context"
 	"encoding/json"
 	"net/http"
 
@@ -10,9 +12,8 @@ import (
 )
 
 type ws struct {
-	upgrade         websocket.Upgrader
-	connectionCount int
-	connections     map[string]*websocket.Conn
+	upgrade     websocket.Upgrader
+	connections map[string]*websocket.Conn
 }
 
 var Ws = ws{
@@ -31,12 +32,11 @@ func (s *ws) Socket(ctx *gin.Context) {
 	}
 	//获取url中的路径参数
 	userId := ctx.Param("id")
-	//连接数改变
-	s.connectionCount++
+	//TODO:用户连接数可以用redis来存储，这样可以实现分布式
 	//储存连接
 	s.connections[userId] = conn
-
-	global.Logger.Info("websocket:有新的连接,现有连接数:", s.connectionCount)
+	global.Rdb.SAdd(context.Background(), "online", userId)
+	global.Logger.Info("websocket:有新的连接,现有连接数:", s.GetOnlineUserNum())
 	defer func(conn *websocket.Conn) {
 		err := conn.Close()
 		if err != nil {
@@ -44,8 +44,8 @@ func (s *ws) Socket(ctx *gin.Context) {
 		}
 		//删除储存的连接
 		delete(s.connections, userId)
-		s.connectionCount--
-		global.Logger.Info("websocket:有连接断开,现有连接数:", s.connectionCount)
+		global.Rdb.SRem(context.Background(), "online", userId)
+		global.Logger.Info("websocket:有连接断开,现有连接数:", s.GetOnlineUserNum())
 	}(conn)
 
 	for {
@@ -59,24 +59,54 @@ func (s *ws) Socket(ctx *gin.Context) {
 			global.Logger.Error("data jsonUnmarshal failed:", err.Error())
 			return
 		}
-		var users = []string{"1", "2"}
-		s.sendArr(users, messageData)
+		if messageData["type"] == "1" {
+			//单发消息
+			s.sendOne(messageData, userId)
+		}
+		if messageData["type"] == "2" {
+			//群发消息
+			s.sendArr(messageData["to_id"].([]string), messageData)
+		}
 	}
 }
 
 // 单发消息
-func (s *ws) sendOne(conn *websocket.Conn, data any) {
-	if err := conn.WriteJSON(gin.H{"data": data}); err != nil {
+func (s *ws) sendOne(dataMap map[string]any, fromId string) {
+
+	//判断发送的用户是否在线
+	if !s.userIsOnline(dataMap["to_id"].(string)) {
+		if err := s.connections[fromId].WriteJSON(gin.H{"data": "对方不在线"}); err != nil {
+			global.Logger.Error("ws send msg failed:", err.Error())
+			return
+		}
+		return
+	}
+	//TODO:判断是否是好友,先放着吧
+	// 存储消息
+	global.DB.Table("msg").Create(&models.Message{FromId: fromId, ToId: dataMap["to_id"].(string), Msg: dataMap["msg"].(string), Type: "1"})
+	if err := s.connections[dataMap["to_id"].(string)].WriteJSON(gin.H{"data": dataMap}); err != nil {
 		global.Logger.Error("ws send msg failed:", err.Error())
 		return
 	}
 }
 
 // 群发消息
-func (s *ws) sendArr(userId []string, data any) {
+func (s *ws) sendArr(userId []string, data map[string]any) {
 	for _, id := range userId {
-		if conn, ok := s.connections[id]; ok {
-			s.sendOne(conn, data)
+		if _, ok := s.connections[id]; ok {
+			//FIXME:如何取出用户所在的群组的所有用户的id，因为调用sendOne如果一个用户不在线就会返回一个状态提示信息，
+			//导致如果一个用户在群发的时候如果很多用户不在线会多次收到状态提示信息
+			s.sendOne(data, id)
 		}
 	}
+}
+
+// 获取在线用户数
+func (s *ws) GetOnlineUserNum() int64 {
+	return global.Rdb.SCard(context.Background(), "online").Val()
+}
+
+// 判断用户是否在线
+func (s *ws) userIsOnline(userId string) bool {
+	return global.Rdb.SIsMember(context.Background(), "online", userId).Val()
 }

@@ -1,0 +1,9 @@
+{"level":"INFO","time":"2023-11-20 13:05:13","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-20 13:05:13","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-20 17:20:47","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-20 17:20:47","msg":"服务器停止"}
+{"level":"INFO","time":"2023-11-20 18:15:12","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-20 18:15:12","msg":"服务器停止"}
+{"level":"ERROR","time":"2023-11-20 19:45:12","msg":"redis connect ping errori/o timeout"}
+{"level":"ERROR","time":"2023-11-20 20:31:08","msg":"Mysql connect failedinvalid connection"}
+{"level":"ERROR","time":"2023-11-20 20:31:11","msg":"redis connect ping errori/o timeout"}

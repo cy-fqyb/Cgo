@@ -1,0 +1,42 @@
+
+2023/11/20 13:42:21 D:/golang/Cgo/front/dao/UserDao.go:23 SLOW SQL >= 200ms
+[832.698ms] [rows:1] INSERT INTO `users` (`id`,`name`,`password`,`email`,`sex`,`avatar`,`status`,`synopsis`,`create_time`,`update_time`) VALUES ('3ebf99bdd9da3e90b486868e0926adb2','传温定深且建','Ut culpa laboris exercitation','u.nyrxmvoe@qq.com','女','http://dummyimage.com/100x100',46,'adipisicing','2023-11-20 13:42:21.121','2023-11-20 13:42:21.121')
+
+2023/11/20 13:43:56 D:/golang/Cgo/front/dao/UserDao.go:23 SLOW SQL >= 200ms
+[832.876ms] [rows:1] INSERT INTO `users` (`id`,`name`,`password`,`email`,`sex`,`avatar`,`status`,`synopsis`,`create_time`,`update_time`) VALUES ('c290565947f33802ee2f4056e9ce932b','身组白育','deserunt non','w.xfwg@qq.com','男','http://dummyimage.com/100x100',41,'quis minim incididunt','2023-11-20 13:43:56.447','2023-11-20 13:43:56.447')
+
+2023/11/20 14:26:08 D:/golang/Cgo/front/dao/UserDao.go:23 Error 1062 (23000): Duplicate entry 'c290565947f33802ee2f4056e9ce932b' for key 'PRIMARY'
+[828.800ms] [rows:0] INSERT INTO `users` (`id`,`name`,`password`,`email`,`sex`,`avatar`,`status`,`synopsis`,`create_time`,`update_time`) VALUES ('c290565947f33802ee2f4056e9ce932b','枫桥夜泊','123456','w.xfwg@qq.com','男','http://dummyimage.com/100x100',41,'quis minim incididunt','2023-11-20 14:26:08.713','2023-11-20 14:26:08.713')
+
+2023/11/20 14:27:19 D:/golang/Cgo/front/dao/UserDao.go:23 SLOW SQL >= 200ms
+[822.563ms] [rows:1] INSERT INTO `users` (`id`,`name`,`password`,`email`,`sex`,`avatar`,`status`,`synopsis`,`create_time`,`update_time`) VALUES ('9d85d30e34358385ec29f4277ebd057b','枫桥夜泊','123456','cy@qq.com','男','http://dummyimage.com/100x100',41,'quis minim incididunt','2023-11-20 14:27:19.158','2023-11-20 14:27:19.158')
+
+2023/11/20 19:58:20 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[502.887ms] [rows:1] SELECT * FROM `users` WHERE `users`.`name` = '枫桥夜泊' AND `users`.`password` = '123456' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 19:58:30 D:/golang/Cgo/front/dao/UserDao.go:14 record not found
+[470.914ms] [rows:0] SELECT * FROM `users` WHERE `users`.`name` = '枫桥夜泊' AND `users`.`password` = '1234567' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 19:58:38 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[484.201ms] [rows:1] SELECT * FROM `users` WHERE `users`.`name` = '枫桥夜泊' AND `users`.`password` = '123456' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 20:15:26 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[288.594ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 20:27:36 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[285.155ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 20:29:28 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[321.305ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 20:31:08 D:/golang/Cgo/config/db.go:37
+[error] failed to initialize database, got error invalid connection
+
+2023/11/20 20:32:17 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[441.379ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 22:18:46 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[263.574ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2023/11/20 22:20:28 D:/golang/Cgo/front/dao/UserDao.go:14 SLOW SQL >= 200ms
+[321.790ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
