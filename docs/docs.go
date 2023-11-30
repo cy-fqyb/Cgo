@@ -18,7 +18,7 @@ const docTemplate = `{
     "paths": {
         "/front/common/ws/{id}": {
             "get": {
-                "description": "websocket",
+                "description": "websocket对话通信接口",
                 "consumes": [
                     "application/json"
                 ],
@@ -52,6 +52,38 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/getUserFriendApply": {
+            "get": {
+                "description": "获取用户好友申请",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "获取用户好友申请",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.Result"
                         }
                     }
                 }
@@ -205,6 +237,19 @@ const docTemplate = `{
                 "data": {
                     "type": "string"
                 },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.Result": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "errs": {},
                 "msg": {
                     "type": "string"
                 }

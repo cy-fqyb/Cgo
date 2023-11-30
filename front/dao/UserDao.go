@@ -3,6 +3,7 @@ package dao
 import (
 	"Cgo/front/models"
 	"Cgo/global"
+	"gorm.io/gorm"
 )
 
 type userDao struct{}
@@ -45,4 +46,13 @@ func (userDao) GetUserMsg(user *models.Users) (models.Users, error) {
 	} else {
 		return *user, r.Error
 	}
+}
+
+// 获取用户好友申请
+func (userDao) GetFriendApply(user *models.Users) ([]models.Apply, error) {
+
+	return DaoErrorHandle[[]models.Apply](func() (*gorm.DB, []models.Apply) {
+		var apply []models.Apply
+		return global.DB.Table("apply").Where("user_id = ?", user.Id).Find(&apply), apply
+	}), nil
 }

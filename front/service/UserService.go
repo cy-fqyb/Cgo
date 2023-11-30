@@ -38,3 +38,12 @@ func (userService) GetFriends(user *models.Users) ([]models.Users, error) {
 		return friends, nil
 	}
 }
+
+// 获取用户好友信息
+func (userService) GetFriendApply(user *models.Users) ([]models.Apply, error) {
+	if apply, err := UserDao.GetFriendApply(user); err != nil {
+		return nil, err
+	} else {
+		return apply, nil
+	}
+}

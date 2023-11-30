@@ -12,6 +12,7 @@ func UserController(r *gin.RouterGroup) {
 	r.POST("/login", common.HandlerFunc(login))
 	r.POST("/register", common.HandlerFunc(register))
 	r.GET("/getUserFriends", common.HandlerFunc(getFriends))
+	r.GET("/getUserFriendApply", common.HandlerFunc(getUserFriendApply))
 }
 
 // @Summary 用户登录接口
@@ -79,4 +80,27 @@ func getFriends(ctx *gin.Context) common.Result {
 	} else {
 		return common.R.Success(friends)
 	}
+}
+
+// @Summary 获取用户好友申请
+// @Description 获取用户好友申请
+// @Tags 前端用户接口
+// @Param userId query string true "用户id"     //参数 ：@Param 参数名 位置（query 或者 path或者 body） 类型 是否必需 注释
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.Result
+// @Router /front/user/getUserFriendApply [get]
+func getUserFriendApply(ctx *gin.Context) common.Result {
+	userId := ctx.Query("userId")
+	if userId == "" {
+		return common.R.Fail("参数不能为空")
+	}
+	user := models.Users{
+		Id: userId,
+	}
+	apply, err := UserService.GetFriendApply(&user)
+	if err != nil {
+		return common.R.Fail(err.Error())
+	}
+	return common.R.Success(apply)
 }

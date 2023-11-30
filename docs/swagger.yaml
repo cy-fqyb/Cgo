@@ -28,6 +28,15 @@ definitions:
       msg:
         type: string
     type: object
+  common.Result:
+    properties:
+      code:
+        type: integer
+      data: {}
+      errs: {}
+      msg:
+        type: string
+    type: object
   dto.UserLoginDto:
     properties:
       email:
@@ -86,7 +95,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: websocket
+      description: websocket对话通信接口
       parameters:
       - description: 用户id
         in: path
@@ -107,6 +116,27 @@ paths:
           schema:
             type: string
       summary: websocket
+      tags:
+      - 前端用户接口
+  /front/user/getUserFriendApply:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户好友申请
+      parameters:
+      - description: 用户id
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Result'
+      summary: 获取用户好友申请
       tags:
       - 前端用户接口
   /front/user/getUserFriends:
