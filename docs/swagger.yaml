@@ -37,6 +37,18 @@ definitions:
       msg:
         type: string
     type: object
+  dto.UserApplyDto:
+    properties:
+      friend_id:
+        type: string
+      is_accept:
+        type: boolean
+      user_id:
+        type: string
+    required:
+    - is_accept
+    - user_id
+    type: object
   dto.UserLoginDto:
     properties:
       email:
@@ -126,7 +138,7 @@ paths:
       parameters:
       - description: 用户id
         in: query
-        name: user_id
+        name: userId
         required: true
         type: string
       produces:
@@ -158,6 +170,28 @@ paths:
           schema:
             $ref: '#/definitions/common.RT-array_models_Users'
       summary: 获取用户好友
+      tags:
+      - 前端用户接口
+  /front/user/handleApplication:
+    post:
+      consumes:
+      - application/json
+      description: 处理用户好友申请
+      parameters:
+      - description: 处理申请的参数
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserApplyDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 处理用户好友申请
       tags:
       - 前端用户接口
   /front/user/login:

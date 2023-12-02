@@ -1,0 +1,123 @@
+
+2023/12/01 00:05:44 C:/Users/pc/golang/front/dao/UserDao.go:53 SLOW SQL >= 200ms
+[526.178ms] [rows:0] SELECT * FROM `apply` WHERE `apply`.`id` = '1'
+
+2023/12/01 00:07:13 C:/Users/pc/golang/front/dao/UserDao.go:53 SLOW SQL >= 200ms
+[515.639ms] [rows:0] SELECT * FROM `apply` WHERE user_id = '1'
+
+2023/12/01 00:07:51 C:/Users/pc/golang/front/dao/UserDao.go:53 SLOW SQL >= 200ms
+[547.961ms] [rows:1] SELECT * FROM `apply` WHERE user_id = '1'
+
+2023/12/01 00:46:17 C:/Users/pc/golang/front/dao/UserDao.go:56 SLOW SQL >= 200ms
+[518.653ms] [rows:1] SELECT * FROM `apply` WHERE user_id = '1'
+
+2023/12/01 00:46:39 C:/Users/pc/golang/front/dao/UserDao.go:56 SLOW SQL >= 200ms
+[483.715ms] [rows:0] SELECT * FROM `apply` WHERE user_id = '10'
+
+2023/12/01 01:17:04 C:/Users/pc/golang/front/dao/UserDao.go:56 SLOW SQL >= 200ms
+[516.391ms] [rows:0] SELECT * FROM `apply` WHERE user_id = '10'
+
+2023/12/01 01:17:08 C:/Users/pc/golang/front/dao/UserDao.go:56 SLOW SQL >= 200ms
+[521.072ms] [rows:1] SELECT * FROM `apply` WHERE user_id = '1'
+
+2023/12/01 01:30:53 C:/Users/pc/golang/front/dao/UserDao.go:60 Error 1054 (42S22): Unknown column 'applies.UserID' in 'where clause'
+[454.822ms] [rows:0] SELECT users.* FROM `apply` JOIN users ON applies.FriendID = users.ID WHERE applies.UserID = '1'
+
+2023/12/01 01:32:43 C:/Users/pc/golang/front/dao/UserDao.go:60 Error 1054 (42S22): Unknown column 'applies.UserID' in 'where clause'
+[458.537ms] [rows:0] SELECT users.* FROM `apply` JOIN users ON apply.apply_id = users.id WHERE applies.UserID = '1'
+
+2023/12/01 01:34:35 C:/Users/pc/golang/front/dao/UserDao.go:60 SLOW SQL >= 200ms
+[481.617ms] [rows:1] SELECT users.* FROM `apply` JOIN users ON apply.apply_id = users.id WHERE apply.user_id = '1'
+
+2023/12/01 01:37:43 C:/Users/pc/golang/front/dao/UserDao.go:60 SLOW SQL >= 200ms
+[490.236ms] [rows:2] SELECT users.* FROM `apply` JOIN users ON apply.apply_id = users.id WHERE apply.user_id = '1'
+
+2023/12/01 02:15:58 C:/Users/pc/golang/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[728.316ms] [rows:1] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:15:58.224','2023-12-01 02:15:58.224')
+
+2023/12/01 02:19:18 C:/Users/pc/golang/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[724.042ms] [rows:1] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:19:18.242','2023-12-01 02:19:18.242')
+
+2023/12/01 02:22:03 C:/Users/pc/golang/front/dao/UserDao.go:68 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[709.614ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:22:02.782','2023-12-01 02:22:02.782')
+
+2023/12/01 02:22:03 C:/Users/pc/golang/front/dao/UserDao.go:73 WHERE conditions required
+[499.523ms] [rows:0] DELETE FROM `apply`
+
+2023/12/01 02:26:02 C:/Users/pc/golang/front/dao/UserDao.go:68 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[716.580ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:26:02.399','2023-12-01 02:26:02.399')
+
+2023/12/01 02:27:00 C:/Users/pc/golang/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[647.276ms] [rows:1] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:27:00.579','2023-12-01 02:27:00.579')
+
+2023/12/01 02:27:01 C:/Users/pc/golang/front/dao/UserDao.go:69 WHERE conditions required
+[504.086ms] [rows:0] DELETE FROM `apply`
+
+2023/12/01 02:37:00 C:/Users/pc/golang/front/dao/UserDao.go:69 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[705.833ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:37:00.059','2023-12-01 02:37:00.059')
+
+2023/12/01 02:37:38 C:/Users/pc/golang/front/dao/UserDao.go:69 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[699.656ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:37:38.496','2023-12-01 02:37:38.496')
+
+2023/12/01 02:37:39 C:/Users/pc/golang/front/dao/UserDao.go:73 Error 1054 (42S22): Unknown column 'friend_id' in 'where clause'
+[596.468ms] [rows:0] DELETE FROM `apply` WHERE user_id = '1' and friend_id = '2'
+
+2023/12/01 02:38:42 C:/Users/pc/golang/front/dao/UserDao.go:69 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[726.841ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:38:42.481','2023-12-01 02:38:42.481')
+
+2023/12/01 02:38:43 C:/Users/pc/golang/front/dao/UserDao.go:73 Error 1054 (42S22): Unknown column 'friend_id' in 'where clause'
+[568.186ms] [rows:0] DELETE FROM `apply` WHERE user_id = '1' and friend_id = '2'
+
+2023/12/01 02:39:32 C:/Users/pc/golang/front/dao/UserDao.go:69 Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'
+[760.533ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:39:31.942','2023-12-01 02:39:31.942')
+
+2023/12/01 02:39:32 C:/Users/pc/golang/front/dao/UserDao.go:73 SLOW SQL >= 200ms
+[676.347ms] [rows:1] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '2'
+
+2023/12/01 02:44:28 C:/Users/pc/golang/front/dao/UserDao.go:69 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[659.790ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 02:44:28.353','2023-12-01 02:44:28.353')
+
+2023/12/01 02:44:29 C:/Users/pc/golang/front/dao/UserDao.go:73 SLOW SQL >= 200ms
+[694.682ms] [rows:0] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '2'
+
+2023/12/01 20:13:23 E:/go/Cgo/front/dao/UserDao.go:71 SLOW SQL >= 200ms
+[382.098ms] [rows:1] SELECT * FROM `apply` ORDER BY `apply`.`id` LIMIT 1
+
+2023/12/01 20:13:23 E:/go/Cgo/front/dao/UserDao.go:72 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[677.140ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 20:13:23.728','2023-12-01 20:13:23.728')
+
+2023/12/01 20:16:00 E:/go/Cgo/front/dao/UserDao.go:71 SLOW SQL >= 200ms
+[361.814ms] [rows:1] SELECT * FROM `apply` LIMIT 1
+
+2023/12/01 20:16:01 E:/go/Cgo/front/dao/UserDao.go:72 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[632.764ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 20:16:01.195','2023-12-01 20:16:01.195')
+
+2023/12/01 20:18:17 E:/go/Cgo/front/dao/UserDao.go:71 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? apply_id = ? LIMIT 1' at line 1
+[405.076ms] [rows:0] SELECT * FROM `apply` WHERE user_id = ? apply_id = ? LIMIT 1
+
+2023/12/01 20:18:18 E:/go/Cgo/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[611.407ms] [rows:0] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '2'
+
+2023/12/01 20:23:52 E:/go/Cgo/front/dao/UserDao.go:71 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? apply_id = ? LIMIT 1' at line 1
+[410.861ms] [rows:0] SELECT * FROM `apply` WHERE user_id = ? apply_id = ? LIMIT 1
+
+2023/12/01 20:23:53 E:/go/Cgo/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[606.038ms] [rows:1] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '3'
+
+2023/12/01 20:27:18 E:/go/Cgo/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[661.317ms] [rows:0] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '3'
+
+2023/12/01 20:47:48 E:/go/Cgo/front/dao/UserDao.go:72 SLOW SQL >= 200ms
+[475.224ms] [rows:1] SELECT * FROM `apply` WHERE  user_id = '1' and apply_id = '2'
+
+2023/12/01 20:47:49 E:/go/Cgo/front/dao/UserDao.go:73 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[812.371ms] [rows:0] INSERT INTO `user_friend` (`id`,`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('','1','2','2023-12-01 20:47:49.22','2023-12-01 20:47:49.22')
+
+2023/12/01 20:48:57 E:/go/Cgo/front/dao/UserDao.go:72 SLOW SQL >= 200ms
+[1770.955ms] [rows:1] SELECT * FROM `apply` WHERE  user_id = '1' and apply_id = '2'
+
+2023/12/01 20:48:58 E:/go/Cgo/front/dao/UserDao.go:73 SLOW SQL >= 200ms
+[728.267ms] [rows:1] INSERT INTO `user_friend` (`user_id`,`friend_id`,`create_time`,`update_time`) VALUES ('1','2','2023-12-01 20:48:58.212','2023-12-01 20:48:58.212')
+
+2023/12/01 20:48:59 E:/go/Cgo/front/dao/UserDao.go:68 SLOW SQL >= 200ms
+[725.157ms] [rows:1] DELETE FROM `apply` WHERE user_id = '1' and apply_id = '2'

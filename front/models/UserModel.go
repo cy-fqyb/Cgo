@@ -18,7 +18,6 @@ type Users struct {
 
 //用户好友表
 type UserFriend struct {
-	Id         string    `json:"id"`
 	UserId     string    `json:"user_id"`
 	FriendId   string    `json:"friend_id"`
 	CreateTime time.Time `json:"create_time,omitempty" gorm:"autoCreateTime"`
@@ -27,7 +26,6 @@ type UserFriend struct {
 
 //用户群组表
 type UserRoom struct {
-	Id         string    `json:"id"`
 	UserId     string    `json:"user_id"`
 	RoomId     string    `json:"room_id"`
 	CreateTime time.Time `json:"create_time,omitempty" gorm:"autoCreateTime"`

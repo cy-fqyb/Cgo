@@ -1,0 +1,28 @@
+{"level":"INFO","time":"2023-12-01 00:44:37","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-01 00:44:37","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-01 00:44:37","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-01 02:22:03","msg":"Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'"}
+{"level":"INFO","time":"2023-12-01 02:26:02","msg":"Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'"}
+{"level":"INFO","time":"2023-12-01 02:27:52","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-01 02:27:52","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-01 02:27:52","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-01 02:37:00","msg":"Error 1062 (23000): Duplicate entry '' for key 'PRIMARY'"}
+{"level":"INFO","time":"2023-12-01 02:43:52","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-01 02:43:52","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-01 02:43:52","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-01 02:45:13","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-01 02:45:13","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-01 02:45:13","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-01 20:31:53","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:34:52","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:35:28","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:35:28","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:36:34","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:36:34","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:42:42","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:42:42","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:47:35","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-01 20:47:35","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-01 20:47:35","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-01 20:47:48","msg":"userId:1friendId:2isAccept:true"}
+{"level":"INFO","time":"2023-12-01 20:48:56","msg":"userId:1friendId:2isAccept:true"}

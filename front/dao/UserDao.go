@@ -3,6 +3,7 @@ package dao
 import (
 	"Cgo/front/models"
 	"Cgo/global"
+
 	"gorm.io/gorm"
 )
 
@@ -49,10 +50,34 @@ func (userDao) GetUserMsg(user *models.Users) (models.Users, error) {
 }
 
 // 获取用户好友申请
-func (userDao) GetFriendApply(user *models.Users) ([]models.Apply, error) {
+func (userDao) GetFriendApply(user *models.Users) ([]models.Users, error) {
 
-	return DaoErrorHandle[[]models.Apply](func() (*gorm.DB, []models.Apply) {
-		var apply []models.Apply
-		return global.DB.Table("apply").Where("user_id = ?", user.Id).Find(&apply), apply
+	return DaoErrorHandle[[]models.Users](func() (*gorm.DB, []models.Users) {
+		var apply []models.Users
+		return global.DB.Model(&models.Apply{}).
+			Select("users.*").
+			Joins("JOIN users ON apply.apply_id = users.id").
+			Where("apply.user_id = ?", user.Id).
+			Find(&apply), apply
 	}), nil
+}
+
+// 处理好友的申请
+func (userDao) HandleApplication(userId string, friendId string, isAccept bool) bool {
+	var deleteApply = func() {
+		global.DB.Where("user_id = ? and apply_id = ?", userId, friendId).Delete(&models.Apply{})
+	}
+	global.Logger.Info("userId:", userId, "friendId:", friendId, "isAccept:", isAccept)
+	//根据用户传来的信息判断是否接收好友
+	if isAccept && global.DB.Where(" user_id = ? and apply_id = ?", userId, friendId).Find(&models.Apply{}).RowsAffected > 0 {
+		if r := global.DB.Create(&models.UserFriend{UserId: userId, FriendId: friendId}); r.RowsAffected > 0 {
+			deleteApply()
+			return true
+		} else {
+			return false
+		}
+	}
+	global.Logger.Info("userId:", userId, "friendId:", friendId, "isAccept:", isAccept)
+	//不管好友申请有没有通过都要把好友申请给干掉
+	return false
 }

@@ -4,6 +4,7 @@ import (
 	"Cgo/front/dto"
 	"Cgo/front/models"
 	"Cgo/utils"
+	"errors"
 )
 
 type userService struct{}
@@ -40,10 +41,18 @@ func (userService) GetFriends(user *models.Users) ([]models.Users, error) {
 }
 
 // 获取用户好友信息
-func (userService) GetFriendApply(user *models.Users) ([]models.Apply, error) {
+func (userService) GetFriendApply(user *models.Users) ([]models.Users, error) {
 	if apply, err := UserDao.GetFriendApply(user); err != nil {
 		return nil, err
 	} else {
 		return apply, nil
 	}
+}
+
+// 处理好友的申请
+func (receiver userService) HandleApplication(applyDto dto.UserApplyDto) error {
+	if UserDao.HandleApplication(applyDto.UserId, applyDto.FriendId, applyDto.IsAccept) {
+		return nil
+	}
+	return errors.New("处理失败")
 }

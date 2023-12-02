@@ -74,7 +74,7 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "description": "用户id",
-                        "name": "user_id",
+                        "name": "userId",
                         "in": "query",
                         "required": true
                     }
@@ -116,6 +116,40 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/common.RT-array_models_Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/handleApplication": {
+            "post": {
+                "description": "处理用户好友申请",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "处理用户好友申请",
+                "parameters": [
+                    {
+                        "description": "处理申请的参数",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserApplyDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
                         }
                     }
                 }
@@ -251,6 +285,24 @@ const docTemplate = `{
                 "data": {},
                 "errs": {},
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserApplyDto": {
+            "type": "object",
+            "required": [
+                "is_accept",
+                "user_id"
+            ],
+            "properties": {
+                "friend_id": {
+                    "type": "string"
+                },
+                "is_accept": {
+                    "type": "boolean"
+                },
+                "user_id": {
                     "type": "string"
                 }
             }
