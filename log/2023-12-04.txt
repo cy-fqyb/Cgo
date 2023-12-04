@@ -1,2 +1,8 @@
 {"level":"INFO","time":"2023-12-04 11:23:16","msg":"websocket:有新的连接,现有连接数:1"}
 {"level":"INFO","time":"2023-12-04 11:23:22","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-12-04 11:33:12","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"INFO","time":"2023-12-04 11:33:16","msg":"websocket:有新的连接,现有连接数:2"}
+{"level":"ERROR","time":"2023-12-04 14:41:13","msg":"redis set failed:set 2466579213@qq.com vV0jPi ex 300: OK"}
+{"level":"ERROR","time":"2023-12-04 14:41:15","msg":"发送邮件失败:535 Error: authentication failed"}
+{"level":"ERROR","time":"2023-12-04 14:49:33","msg":"发送邮件失败:mail: missing '@' or angle-addr"}
+{"level":"ERROR","time":"2023-12-04 15:05:32","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}

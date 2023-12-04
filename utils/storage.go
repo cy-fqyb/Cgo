@@ -7,7 +7,6 @@ import (
 	"image"
 	_ "image/gif"
 	"image/jpeg"
-	_ "image/jpeg"
 	_ "image/png"
 	"io"
 	"mime/multipart"
@@ -51,7 +50,11 @@ func UploadAliyunOss(file *multipart.FileHeader) string {
 		if err != nil {
 			global.Logger.Info(fmt.Sprintf("Failed to compress image, with error: %s", err.Error()))
 		}
-		err = bucket.PutObject(name, bytes.NewReader(imgData))
+		if err = bucket.PutObject(name, bytes.NewReader(imgData)); err != nil {
+			global.Logger.Info(fmt.Sprintf("Failed to upload file, with error: %s", err.Error()))
+			os.Exit(-1)
+		}
+
 	} else {
 		//不是图片的话直接上传
 		err = bucket.PutObject(name, src)

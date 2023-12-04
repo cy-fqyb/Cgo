@@ -59,15 +59,6 @@ definitions:
     - email
     - password
     type: object
-  dto.WsDto:
-    properties:
-      msg:
-        type: string
-      to_id:
-        type: integer
-      type:
-        type: string
-    type: object
   models.UserFriend:
     properties:
       create_time:
@@ -114,31 +105,25 @@ info:
   title: Im在线通信系统接口文档
   version: 1.0 版本
 paths:
-  /front/common/ws/{id}:
+  /common/test:
     get:
       consumes:
       - application/json
-      description: websocket对话通信接口
+      description: 测试接口
       parameters:
       - description: 用户id
         in: path
         name: id
         required: true
-        type: string
-      - description: 消息体
-        in: body
-        name: msg
-        required: true
-        schema:
-          $ref: '#/definitions/dto.WsDto'
+        type: integer
       produces:
       - application/json
       responses:
         "200":
-          description: OK
+          description: '{"code":200,"data":{},"msg":"ok"}'
           schema:
             type: string
-      summary: websocket
+      summary: 测试接口
       tags:
       - 前端用户接口
   /front/user/deleteFriend:

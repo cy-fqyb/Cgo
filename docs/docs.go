@@ -16,9 +16,9 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/front/common/ws/{id}": {
+        "/common/test": {
             "get": {
-                "description": "websocket对话通信接口",
+                "description": "测试接口",
                 "consumes": [
                     "application/json"
                 ],
@@ -28,28 +28,19 @@ const docTemplate = `{
                 "tags": [
                     "前端用户接口"
                 ],
-                "summary": "websocket",
+                "summary": "测试接口",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "integer",
                         "description": "用户id",
                         "name": "id",
                         "in": "path",
                         "required": true
-                    },
-                    {
-                        "description": "消息体",
-                        "name": "msg",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/dto.WsDto"
-                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -352,20 +343,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "password": {
-                    "type": "string"
-                }
-            }
-        },
-        "dto.WsDto": {
-            "type": "object",
-            "properties": {
-                "msg": {
-                    "type": "string"
-                },
-                "to_id": {
-                    "type": "integer"
-                },
-                "type": {
                     "type": "string"
                 }
             }

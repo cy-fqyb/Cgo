@@ -1,10 +1,8 @@
 package controller
 
 import (
-	"Cgo/backend/dto"
-	"Cgo/backend/models"
-	"Cgo/backend/service"
 	"Cgo/common"
+	"Cgo/global"
 	"Cgo/utils"
 
 	"github.com/gin-gonic/gin"
@@ -13,8 +11,7 @@ import (
 func CommonController(r *gin.RouterGroup) {
 	// 文件上传接口
 	r.POST("/upload", common.HandlerFunc(uploadFile))
-	r.POST("/login", common.HandlerFunc(login))
-	r.POST("/register", common.HandlerFunc(register))
+	r.GET("/test", common.HandlerFunc(Test))
 	r.GET("/ws/:id", WebSocket)
 }
 
@@ -31,33 +28,21 @@ func WebSocket(ctx *gin.Context) {
 	Ws.Socket(ctx)
 }
 
-// 用户登录接口
-func login(c *gin.Context) common.Result {
-	// 获取请求参数
-	var user models.User
-	if err := c.ShouldBindJSON(&user); err != nil {
-		return common.R.Fail(err.Error())
+// @Summary 测试接口
+// @Description 测试接口
+// @Tags 前端用户接口
+// @Accept json
+// @Produce json
+// @Param id path int true "用户id"
+// @Success 200 {string} string "{"code":200,"data":{},"msg":"ok"}"
+// @Router /common/test [get]
+func Test(c *gin.Context) common.Result {
+	email := c.Query("email")
+	utils.SendEmail(email)
+	data := map[string]any{
+		"test": "test",
+		"user": global.ConfigViper.GetString("email.user"),
+		"code": utils.GenerateCode(),
 	}
-	// 调用服务层方法
-	token, err := service.UserService.Login(&user)
-	if err != nil {
-		return common.R.Fail(err.Error())
-	}
-	return common.R.Success(map[string]any{
-		"user":  user,
-		"token": token,
-	})
-}
-
-// register 用户注册
-func register(ctx *gin.Context) common.Result {
-	var userDto dto.UserDto
-	if err := ctx.ShouldBindJSON(&userDto); err != nil {
-		return common.R.Fail(err.Error())
-	}
-	err := service.UserService.Register(userDto)
-	if err != nil {
-		return common.R.Fail(err.Error())
-	}
-	return common.R.Success("用户注册成功")
+	return common.R.Success(data)
 }
