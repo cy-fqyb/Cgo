@@ -127,7 +127,21 @@ func handleApplication(ctx *gin.Context) common.Result {
 	return common.R.Success("添加成功")
 }
 
-// 删除好友
+// @Summary 删除好友
+// @Description 删除好友
+// @Tags 前端用户接口
+// @Param user body models.UserFriend true "处理申请的参数"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[string]
+// @Router /front/user/deleteFriend [post]
 func deleteFriend(ctx *gin.Context) common.Result {
-	return common.R.Success("自动化部署测试")
+	var friend models.UserFriend
+	if err := ctx.ShouldBindJSON(&friend); err != nil {
+		return common.R.Fail("参数错误: " + err.Error())
+	}
+	if err := UserService.DeleteFriend(friend.UserId, friend.FriendId); err != nil {
+		return common.R.Fail("删除失败: " + err.Error())
+	}
+	return common.R.Success("删除成功")
 }

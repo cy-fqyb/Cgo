@@ -2,6 +2,7 @@ package router
 
 import (
 	"Cgo/front/controller"
+
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,112 +1,112 @@
 package utils
 
 import (
-	"Cgo/front/models"
-	"Cgo/global"
-	"context"
-	"encoding/json"
-	"net/http"
+	"errors"
+	"sync"
 
-	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 )
 
-type ws struct {
-	upgrade     websocket.Upgrader
-	connections map[string]*websocket.Conn
+// 以下为websocket的封装
+type Connection struct {
+	wsConn *websocket.Conn
+	//读取websocket的channel
+	inChan chan []byte
+	//给websocket写消息的channel
+	outChan   chan []byte
+	closeChan chan byte
+	mutex     sync.Mutex
+	//closeChan 状态
+	isClosed bool
 }
 
-var Ws = ws{
-	upgrade: websocket.Upgrader{
-		ReadBufferSize:  1024,
-		WriteBufferSize: 1024,
-	},
-	connections: map[string]*websocket.Conn{},
-}
-
-func (s *ws) Socket(ctx *gin.Context) {
-	conn, err := s.upgrade.Upgrade(ctx.Writer, ctx.Request, nil)
-	if err != nil {
-		ctx.AbortWithStatusJSON(http.StatusOK, gin.H{"code": 0, "msg": err.Error()})
-		return
+// 初始化长连接
+func InitConnection(wsConn *websocket.Conn) (conn *Connection, err error) {
+	conn = &Connection{
+		wsConn:    wsConn,
+		inChan:    make(chan []byte, 1000),
+		outChan:   make(chan []byte, 1000),
+		closeChan: make(chan byte, 1),
 	}
-	//获取url中的路径参数
-	userId := ctx.Param("id")
-	//TODO:用户连接数可以用redis来存储，这样可以实现分布式
-	//储存连接
-	s.connections[userId] = conn
-	global.Rdb.SAdd(context.Background(), "online", userId)
-	global.Logger.Info("websocket:有新的连接,现有连接数:", s.GetOnlineUserNum())
-	defer func(conn *websocket.Conn) {
-		err := conn.Close()
-		if err != nil {
-			global.Logger.Error(err.Error())
-		}
-		//删除储存的连接
-		delete(s.connections, userId)
-		global.Rdb.SRem(context.Background(), "online", userId)
-		global.Logger.Info("websocket:有连接断开,现有连接数:", s.GetOnlineUserNum())
-	}(conn)
+	//启动读协程
+	go conn.readLoop()
+	//启动写协程
+	go conn.writeLoop()
+	return
+}
 
+// 读取websocket消息
+func (conn *Connection) ReadMessage() (data []byte, err error) {
+	select {
+	case data = <-conn.inChan:
+	case <-conn.closeChan:
+		err = errors.New("connection is closed")
+	}
+	return
+}
+
+// 发送消息到websocket
+func (conn *Connection) WriteMessage(data []byte) (err error) {
+	select {
+	case conn.outChan <- data:
+	case <-conn.closeChan:
+		err = errors.New("connection is closed")
+	}
+	return
+}
+
+// 关闭连接
+func (conn *Connection) Close() {
+	//线程安全的Close,可重入
+	conn.wsConn.Close()
+
+	//只执行一次
+	conn.mutex.Lock()
+	if !conn.isClosed {
+		close(conn.closeChan)
+		conn.isClosed = true
+	}
+	conn.mutex.Unlock()
+}
+
+func (conn *Connection) readLoop() {
+	var (
+		data []byte
+		err  error
+	)
 	for {
-		_, p, err := conn.ReadMessage()
-		if err != nil {
-			return
+		if _, data, err = conn.wsConn.ReadMessage(); err != nil {
+			goto ERR
 		}
-		var messageData map[string]interface{}
-		err = json.Unmarshal(p, &messageData)
-		if err != nil {
-			global.Logger.Error("data jsonUnmarshal failed:", err.Error())
-			return
-		}
-		if messageData["type"] == "1" {
-			//单发消息
-			s.sendOne(messageData, userId)
-		}
-		if messageData["type"] == "2" {
-			//群发消息
-			s.sendArr(messageData["to_id"].([]string), messageData)
+		//如果数据量过大阻塞在这里,等待inChan有空闲的位置！
+		select {
+		case conn.inChan <- data:
+		case <-conn.closeChan:
+			//closeChan关闭的时候
+			goto ERR
+
 		}
 	}
+ERR:
+	conn.Close()
 }
 
-// 单发消息
-func (s *ws) sendOne(dataMap map[string]any, fromId string) {
+func (conn *Connection) writeLoop() {
+	var (
+		data []byte
+		err  error
+	)
+	for {
+		select {
+		case data = <-conn.outChan:
+		case <-conn.closeChan:
+			goto ERR
 
-	//判断发送的用户是否在线
-	if !s.userIsOnline(dataMap["to_id"].(string)) {
-		if err := s.connections[fromId].WriteJSON(gin.H{"data": "对方不在线"}); err != nil {
-			global.Logger.Error("ws send msg failed:", err.Error())
-			return
 		}
-		return
-	}
-	//TODO:判断是否是好友,先放着吧
-	// 存储消息
-	global.DB.Table("msg").Create(&models.Message{FromId: fromId, ToId: dataMap["to_id"].(string), Msg: dataMap["msg"].(string), Type: "1"})
-	if err := s.connections[dataMap["to_id"].(string)].WriteJSON(gin.H{"data": dataMap}); err != nil {
-		global.Logger.Error("ws send msg failed:", err.Error())
-		return
-	}
-}
-
-// 群发消息
-func (s *ws) sendArr(userId []string, data map[string]any) {
-	for _, id := range userId {
-		if _, ok := s.connections[id]; ok {
-			//FIXME:如何取出用户所在的群组的所有用户的id，因为调用sendOne如果一个用户不在线就会返回一个状态提示信息，
-			//导致如果一个用户在群发的时候如果很多用户不在线会多次收到状态提示信息
-			s.sendOne(data, id)
+		if err = conn.wsConn.WriteMessage(websocket.TextMessage, data); err != nil {
+			goto ERR
 		}
 	}
-}
-
-// 获取在线用户数
-func (s *ws) GetOnlineUserNum() int64 {
-	return global.Rdb.SCard(context.Background(), "online").Val()
-}
-
-// 判断用户是否在线
-func (s *ws) userIsOnline(userId string) bool {
-	return global.Rdb.SIsMember(context.Background(), "online", userId).Val()
+ERR:
+	conn.Close()
 }

@@ -28,7 +28,7 @@ func uploadFile(c *gin.Context) common.Result {
 }
 
 func WebSocket(ctx *gin.Context) {
-	utils.Ws.Socket(ctx)
+	Ws.Socket(ctx)
 }
 
 // 用户登录接口

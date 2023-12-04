@@ -56,3 +56,11 @@ func (receiver userService) HandleApplication(applyDto dto.UserApplyDto) error {
 	}
 	return errors.New("处理失败")
 }
+
+// 删除好友
+func (receiver userService) DeleteFriend(userId string, friendId string) error {
+	if UserDao.DeleteFriend(userId, friendId) {
+		return nil
+	}
+	return errors.New("删除失败")
+}

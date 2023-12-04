@@ -4,35 +4,35 @@ go env -w GOOS=linux
 go env -w GOARCH=amd64
 
 # 输出 CGO_ENABLED、GOOS 和 GOARCH 的当前值
-Write-Host "Now the CGO_ENABLED:"
+Write-Host "Now the CGO_ENABLED:" -ForegroundColor Blue
 go env CGO_ENABLED
 
-Write-Host "Now the GOOS:"
+Write-Host "Now the GOOS:" -ForegroundColor Blue
 go env GOOS
 
-Write-Host "Now the GOARCH:"
+Write-Host "Now the GOARCH:" -ForegroundColor Blue
 go env GOARCH
 
 # 构建 main.go
 go build main.go
-Write-Host "Wait building"
+Write-Host "Wait building" -ForegroundColor Green
 
 # 恢复环境变量
-go env -w CGO_ENABLED=1
+go env -w CGO_ENABLED=1cl
 go env -w GOOS=windows
 go env -w GOARCH=amd64
 
 # 输出 CGO_ENABLED、GOOS 和 GOARCH 的当前值
-Write-Host "Now the CGO_ENABLED:"
+Write-Host "Now the CGO_ENABLED:" -ForegroundColor Blue
 go env CGO_ENABLED
 
-Write-Host "Now the GOOS:"
+Write-Host "Now the GOOS:" -ForegroundColor Blue
 go env GOOS
 
-Write-Host "Now the GOARCH:"
+Write-Host "Now the GOARCH:" -ForegroundColor Blue
 go env GOARCH
 
-Write-Host "Build success"
+Write-Host "Build success" -ForegroundColor Green
 
 $server = "159.75.155.236"
 $username = "root"
@@ -47,22 +47,22 @@ $remoteExecutablePath = "./main"
 $processToStop = ssh $username@$server "pgrep -f '$remoteExecutablePath'"
 
 if ($processToStop -ne $null) {
-    Write-Host "Terminating old process with PID $processToStop"
+    Write-Host "Terminating old process with PID $processToStop" -ForegroundColor Yellow
     
     # 杀死远程服务器上的进程
     ssh $username@$server "kill -TERM $processToStop"
     
     Start-Sleep -Seconds 3  # 根据需要调整等待时间
     
-    Write-Host "Stop service success"
+    Write-Host "Stop service success" -ForegroundColor Red
 } else {
-    Write-Host "No running process found"
+    Write-Host "No running process found" -ForegroundColor Green
 }
 
 # 使用 SCP 推送文件到服务器
 & scp.exe $localFile "${username}@${server}:${remoteDirectory}"
 # 输出消息
-Write-Host "Push execution completed."
+Write-Host "Push execution completed." -ForegroundColor Green
 # 启动服务
 # Write-Host "Starting service..."
 # 在这里添加启动服务的命令，例如 systemctl start your_service
@@ -70,5 +70,3 @@ Write-Host "Push execution completed."
 # 远程执行 Shell 脚本
 # ssh.exe "${username}@${server}" "bash ${remoteScript}"
 # Write-Host "Service updated successfully."
-
-

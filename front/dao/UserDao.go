@@ -81,3 +81,12 @@ func (userDao) HandleApplication(userId string, friendId string, isAccept bool) 
 	//不管好友申请有没有通过都要把好友申请给干掉
 	return false
 }
+
+// 删除好友
+func (userDao) DeleteFriend(userId, friengId string) bool {
+	if r := global.DB.Where("user_id = ? and friend_id = ?", userId, friengId).Delete(&models.UserFriend{}); r.RowsAffected > 0 {
+		return true
+	} else {
+		return false
+	}
+}

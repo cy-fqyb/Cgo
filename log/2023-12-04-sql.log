@@ -1,0 +1,3 @@
+
+2023/12/04 11:23:27 E:/go/Cgo/common/controller/WebsocketController.go:89 SLOW SQL >= 200ms
+[279.291ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-12-04 11:23:27.144','2023-12-04 11:23:27.144')

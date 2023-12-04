@@ -68,6 +68,17 @@ definitions:
       type:
         type: string
     type: object
+  models.UserFriend:
+    properties:
+      create_time:
+        type: string
+      friend_id:
+        type: string
+      update_time:
+        type: string
+      user_id:
+        type: string
+    type: object
   models.Users:
     properties:
       avatar:
@@ -128,6 +139,28 @@ paths:
           schema:
             type: string
       summary: websocket
+      tags:
+      - 前端用户接口
+  /front/user/deleteFriend:
+    post:
+      consumes:
+      - application/json
+      description: 删除好友
+      parameters:
+      - description: 处理申请的参数
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserFriend'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 删除好友
       tags:
       - 前端用户接口
   /front/user/getUserFriendApply:

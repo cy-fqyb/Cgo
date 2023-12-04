@@ -49,6 +49,40 @@
                 }
             }
         },
+        "/front/user/deleteFriend": {
+            "post": {
+                "description": "删除好友",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "删除好友",
+                "parameters": [
+                    {
+                        "description": "处理申请的参数",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFriend"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
+                        }
+                    }
+                }
+            }
+        },
         "/front/user/getUserFriendApply": {
             "get": {
                 "description": "获取用户好友申请",
@@ -324,6 +358,23 @@
                     "type": "integer"
                 },
                 "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UserFriend": {
+            "type": "object",
+            "properties": {
+                "create_time": {
+                    "type": "string"
+                },
+                "friend_id": {
+                    "type": "string"
+                },
+                "update_time": {
+                    "type": "string"
+                },
+                "user_id": {
                     "type": "string"
                 }
             }
