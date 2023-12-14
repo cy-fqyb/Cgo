@@ -16,6 +16,38 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/common/email": {
+            "get": {
+                "description": "发送邮箱验证码",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端通用接口"
+                ],
+                "summary": "发送邮箱验证码",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "邮箱",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/common/test": {
             "get": {
                 "description": "测试接口",
@@ -26,7 +58,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "前端用户接口"
+                    "前端通用接口"
                 ],
                 "summary": "测试接口",
                 "parameters": [
@@ -43,6 +75,172 @@ const docTemplate = `{
                         "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/upload": {
+            "post": {
+                "description": "文件上传接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端通用接口"
+                ],
+                "summary": "文件上传接口",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "文件",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/applyJoinRoom": {
+            "post": {
+                "description": "申请加入房间",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "申请加入房间",
+                "parameters": [
+                    {
+                        "description": "用户申请信息",
+                        "name": "room",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RoomApply"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/createRoom": {
+            "post": {
+                "description": "创建房间",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "创建房间",
+                "parameters": [
+                    {
+                        "description": "房间信息",
+                        "name": "room",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Room"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/getRoomApply": {
+            "get": {
+                "description": "获取房间的申请信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "获取房间的申请信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "房主id",
+                        "name": "master_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_RoomApply"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/addFriend": {
+            "post": {
+                "description": "请求添加好友",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "请求添加好友",
+                "parameters": [
+                    {
+                        "description": "处理申请的参数",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFriend"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
                         }
                     }
                 }
@@ -273,6 +471,20 @@ const docTemplate = `{
                 }
             }
         },
+        "common.RT-models_RoomApply": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.RoomApply"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "common.RT-models_Users": {
             "type": "object",
             "properties": {
@@ -343,6 +555,47 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Room": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "create_time": {
+                    "type": "string"
+                },
+                "master_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "update_time": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.RoomApply": {
+            "type": "object",
+            "required": [
+                "master_id",
+                "user_id"
+            ],
+            "properties": {
+                "create_time": {
+                    "type": "string"
+                },
+                "master_id": {
+                    "type": "string"
+                },
+                "update_time": {
+                    "type": "string"
+                },
+                "user_id": {
                     "type": "string"
                 }
             }

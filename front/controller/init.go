@@ -5,3 +5,4 @@ import (
 )
 
 var UserService = service.UserService
+var RoomService = service.RoomService

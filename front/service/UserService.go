@@ -64,3 +64,11 @@ func (receiver userService) DeleteFriend(userId string, friendId string) error {
 	}
 	return errors.New("删除失败")
 }
+
+// 请求添加好友
+func (receiver userService) RequestAddFriend(userId string, friendId string) error {
+	if UserDao.RequestAddFriend(userId, friendId) {
+		return nil
+	}
+	return errors.New("请求失败")
+}

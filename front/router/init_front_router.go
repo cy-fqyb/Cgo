@@ -8,4 +8,5 @@ import (
 
 func Init(r *gin.RouterGroup) {
 	controller.UserController(r.Group("/user"))
+	controller.RoomController(r.Group("/room"))
 }

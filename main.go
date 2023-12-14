@@ -6,7 +6,7 @@ import "Cgo/cmd"
 // @version 1.0 版本
 // @description im在线通信系统前后台接口文档
 // @BasePath
-// @host localhost:8080
+// @host 159.75.155.236:8080
 func main() {
 	cmd.Start()
 	cmd.End()

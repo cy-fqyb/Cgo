@@ -1,0 +1,39 @@
+
+2023/12/06 10:19:58 E:/go/Cgo/front/dao/RoomDao.go:14 SLOW SQL >= 200ms
+[1924.297ms] [rows:1] INSERT INTO `room` (`name`,`avatar`,`master_id`,`create_time`,`update_time`) VALUES ('导为约国养别','图片','36','2023-12-06 10:19:58.755','2023-12-06 10:19:58.755')
+
+2023/12/06 16:06:13 E:/go/Cgo/front/dao/RoomDao.go:26 record not found
+[259.082ms] [rows:0] SELECT * FROM `room_apply` WHERE master_id = '1' LIMIT 1
+
+2023/12/06 16:08:03 E:/go/Cgo/front/dao/RoomDao.go:20 failed to set value time.Date(2023, time.December, 6, 16, 8, 3, 122000000, time.Local) to field CreateTime; failed to set value time.Date(2023, time.December, 6, 16, 8, 3, 122000000, time.Local) to field UpdateTime
+[792.565ms] [rows:0] INSERT INTO `room_apply` (`master_id`,`user_id`,`create_time`,`update_time`) VALUES ('1','65','','')
+
+2023/12/06 16:09:26 E:/go/Cgo/front/dao/RoomDao.go:20 SLOW SQL >= 200ms
+[293.509ms] [rows:1] INSERT INTO `room_apply` (`master_id`,`user_id`,`create_time`,`update_time`) VALUES ('1','65','2023-12-06 16:09:26.601','2023-12-06 16:09:26.601')
+
+2023/12/06 16:10:15 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[1726.892ms] [rows:1] SELECT * FROM `room_apply` WHERE master_id = '1' LIMIT 1
+
+2023/12/06 16:12:27 E:/go/Cgo/front/dao/RoomDao.go:20 SLOW SQL >= 200ms
+[1741.549ms] [rows:1] INSERT INTO `room_apply` (`master_id`,`user_id`,`create_time`,`update_time`) VALUES ('1','45','2023-12-06 16:12:27.514','2023-12-06 16:12:27.514')
+
+2023/12/06 16:12:33 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[1249.406ms] [rows:1] SELECT * FROM `room_apply` WHERE master_id = '1' LIMIT 1
+
+2023/12/06 16:14:23 E:/go/Cgo/front/dao/RoomDao.go:26
+[197.430ms] [rows:2] SELECT * FROM `room_apply` WHERE master_id = '1'
+
+2023/12/06 16:15:50 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[1667.347ms] [rows:0] SELECT * FROM `room_apply` WHERE master_id = '2'
+
+2023/12/06 16:20:44 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[1219.567ms] [rows:0] SELECT * FROM `room_apply` WHERE master_id = '2'
+
+2023/12/06 16:21:43 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[748.730ms] [rows:2] SELECT * FROM `room_apply` WHERE master_id = '1'
+
+2023/12/06 16:22:19 E:/go/Cgo/front/dao/RoomDao.go:20 SLOW SQL >= 200ms
+[256.949ms] [rows:1] INSERT INTO `room_apply` (`master_id`,`user_id`,`create_time`,`update_time`) VALUES ('1','95','2023-12-06 16:22:19.882','2023-12-06 16:22:19.882')
+
+2023/12/06 16:22:25 E:/go/Cgo/front/dao/RoomDao.go:26 SLOW SQL >= 200ms
+[1566.011ms] [rows:3] SELECT * FROM `room_apply` WHERE master_id = '1'

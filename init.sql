@@ -74,3 +74,14 @@ CREATE TABLE
         `update_time` datetime DEFAULT NULL COMMENT '更新时间',
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '申请表';
+
+DROP TABLE IF EXISTS `room_apply`;
+
+create table `room_apply`(
+    `id` int(11)  NOT NULL  AUTO_INCREMENT primary key COMMENT '主键',
+    `master_id` varchar(36) NOT NULL COMMENT '房主ID',
+    `user_id` varchar(36) NOT NULL COMMENT '用户ID',
+    `status` int(1) NULL default 1 COMMENT '状态，1为申请中，2为已同意，3为已拒绝',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '更新时间'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '房间申请表';

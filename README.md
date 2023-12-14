@@ -13,3 +13,5 @@ go get -u github.com/gin-gonic/gin
 - 日志框架 Zap
 - 数据库 Mysql，Redis
 - Orm 框架 Gorm
+## 学习记录
+- 使用powershell脚本和远程文件监控实现一件打包和自动部署

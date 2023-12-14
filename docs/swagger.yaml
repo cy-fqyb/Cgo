@@ -10,6 +10,15 @@ definitions:
       msg:
         type: string
     type: object
+  common.RT-models_RoomApply:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.RoomApply'
+      msg:
+        type: string
+    type: object
   common.RT-models_Users:
     properties:
       code:
@@ -59,6 +68,33 @@ definitions:
     - email
     - password
     type: object
+  models.Room:
+    properties:
+      avatar:
+        type: string
+      create_time:
+        type: string
+      master_id:
+        type: string
+      name:
+        type: string
+      update_time:
+        type: string
+    type: object
+  models.RoomApply:
+    properties:
+      create_time:
+        type: string
+      master_id:
+        type: string
+      update_time:
+        type: string
+      user_id:
+        type: string
+    required:
+    - master_id
+    - user_id
+    type: object
   models.UserFriend:
     properties:
       create_time:
@@ -105,6 +141,27 @@ info:
   title: Im在线通信系统接口文档
   version: 1.0 版本
 paths:
+  /common/email:
+    get:
+      consumes:
+      - application/json
+      description: 发送邮箱验证码
+      parameters:
+      - description: 邮箱
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 发送邮箱验证码
+      tags:
+      - 前端通用接口
   /common/test:
     get:
       consumes:
@@ -124,6 +181,114 @@ paths:
           schema:
             type: string
       summary: 测试接口
+      tags:
+      - 前端通用接口
+  /common/upload:
+    post:
+      consumes:
+      - application/json
+      description: 文件上传接口
+      parameters:
+      - description: 文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 文件上传接口
+      tags:
+      - 前端通用接口
+  /front/room/applyJoinRoom:
+    post:
+      consumes:
+      - application/json
+      description: 申请加入房间
+      parameters:
+      - description: 用户申请信息
+        in: body
+        name: room
+        required: true
+        schema:
+          $ref: '#/definitions/models.RoomApply'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 申请加入房间
+      tags:
+      - 前端房间接口
+  /front/room/createRoom:
+    post:
+      consumes:
+      - application/json
+      description: 创建房间
+      parameters:
+      - description: 房间信息
+        in: body
+        name: room
+        required: true
+        schema:
+          $ref: '#/definitions/models.Room'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 创建房间
+      tags:
+      - 前端房间接口
+  /front/room/getRoomApply:
+    get:
+      consumes:
+      - application/json
+      description: 获取房间的申请信息
+      parameters:
+      - description: 房主id
+        in: query
+        name: master_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-models_RoomApply'
+      summary: 获取房间的申请信息
+      tags:
+      - 前端房间接口
+  /front/user/addFriend:
+    post:
+      consumes:
+      - application/json
+      description: 请求添加好友
+      parameters:
+      - description: 处理申请的参数
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserFriend'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 请求添加好友
       tags:
       - 前端用户接口
   /front/user/deleteFriend:

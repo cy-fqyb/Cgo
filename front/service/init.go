@@ -5,3 +5,4 @@ import (
 )
 
 var UserDao = dao.UserDao
+var RoomDao = dao.RoomDao

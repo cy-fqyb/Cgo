@@ -4,3 +4,15 @@
 
 2023/12/04 11:33:19 E:/go/Cgo/common/controller/WebsocketController.go:89 SLOW SQL >= 200ms
 [1272.699ms] [rows:1] INSERT INTO `msg` (`from_id`,`to_id`,`msg`,`type`,`create_time`,`update_time`) VALUES ('1','2','你是个傻逼，猪鼻2','1','2023-12-04 11:33:19.101','2023-12-04 11:33:19.101')
+
+2023/12/04 17:06:43 E:/go/Cgo/front/dao/UserDao.go:36 SLOW SQL >= 200ms
+[1327.729ms] [rows:2] SELECT * FROM `users` WHERE id in (select friend_id from user_friend where user_id = '1')
+
+2023/12/04 17:10:14 E:/go/Cgo/front/dao/UserDao.go:96 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[1339.487ms] [rows:0] INSERT INTO `apply` (`id`,`user_id`,`apply_id`,`create_time`,`update_time`) VALUES ('','4','','2023-12-04 17:10:14.129','2023-12-04 17:10:14.129')
+
+2023/12/04 17:12:07 E:/go/Cgo/front/dao/UserDao.go:96 Error 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+[1453.661ms] [rows:0] INSERT INTO `apply` (`id`,`user_id`,`apply_id`,`create_time`,`update_time`) VALUES ('','4','1','2023-12-04 17:12:07.551','2023-12-04 17:12:07.551')
+
+2023/12/04 17:15:36 E:/go/Cgo/front/dao/UserDao.go:96 SLOW SQL >= 200ms
+[884.511ms] [rows:1] INSERT INTO `apply` (`user_id`,`apply_id`,`create_time`,`update_time`) VALUES ('4','1','2023-12-04 17:15:36.753','2023-12-04 17:15:36.753')

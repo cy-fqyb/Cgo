@@ -90,3 +90,13 @@ func (userDao) DeleteFriend(userId, friengId string) bool {
 		return false
 	}
 }
+
+// 请求添加好友
+func (userDao) RequestAddFriend(userId, friendId string) bool {
+	//判断是否是好友关系
+	if r := global.DB.Create(&models.Apply{UserId: userId, ApplyId: friendId}); r.RowsAffected > 0 {
+		return true
+	} else {
+		return false
+	}
+}

@@ -6,3 +6,6 @@
 {"level":"ERROR","time":"2023-12-04 14:41:15","msg":"发送邮件失败:535 Error: authentication failed"}
 {"level":"ERROR","time":"2023-12-04 14:49:33","msg":"发送邮件失败:mail: missing '@' or angle-addr"}
 {"level":"ERROR","time":"2023-12-04 15:05:32","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}
+{"level":"INFO","time":"2023-12-04 16:53:25","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-04 16:53:25","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-04 16:53:25","msg":"服务器停止"}

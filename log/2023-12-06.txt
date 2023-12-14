@@ -1,0 +1,12 @@
+{"level":"INFO","time":"2023-12-06 10:11:45","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-06 10:11:45","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-06 10:11:45","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-06 12:52:42","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-06 12:52:42","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-06 12:52:42","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-06 15:58:18","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-06 15:58:18","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-06 15:58:18","msg":"服务器停止"}
+{"level":"INFO","time":"2023-12-06 16:24:56","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-06 16:24:56","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2023-12-06 16:24:56","msg":"服务器停止"}

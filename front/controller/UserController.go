@@ -15,6 +15,7 @@ func UserController(r *gin.RouterGroup) {
 	r.GET("/getUserFriendApply", common.HandlerFunc(getUserFriendApply))
 	r.POST("/handleApplication", common.HandlerFunc(handleApplication))
 	r.POST("/deleteFriend", common.HandlerFunc(deleteFriend))
+	r.POST("/addFriend", common.HandlerFunc(addFriend))
 }
 
 // @Summary 用户登录接口
@@ -144,4 +145,24 @@ func deleteFriend(ctx *gin.Context) common.Result {
 		return common.R.Fail("删除失败: " + err.Error())
 	}
 	return common.R.Success("删除成功")
+}
+
+// 请求添加好友
+// @Summary 请求添加好友
+// @Description 请求添加好友
+// @Tags 前端用户接口
+// @Param user body models.UserFriend true "处理申请的参数"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[string]
+// @Router /front/user/addFriend [post]
+func addFriend(ctx *gin.Context) common.Result {
+	var apply models.Apply
+	if err := ctx.ShouldBindJSON(&apply); err != nil {
+		return common.R.Fail("参数错误: " + err.Error())
+	}
+	if err := UserService.RequestAddFriend(apply.UserId, apply.ApplyId); err != nil {
+		return common.R.Fail("添加失败: " + err.Error())
+	}
+	return common.R.Success("添加成功")
 }
