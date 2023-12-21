@@ -6,7 +6,7 @@
         "contact": {},
         "version": "1.0 版本"
     },
-    "host": "localhost:8080",
+    "host": "159.75.155.236:8080",
     "paths": {
         "/common/email": {
             "get": {
@@ -199,6 +199,72 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/common.RT-models_RoomApply"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/getRoomUsers": {
+            "get": {
+                "description": "获取所有用户的信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "获取聊天群中的所有用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "群组id",
+                        "name": "room_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/handleRoomApplication": {
+            "post": {
+                "description": "处理用户加群申请",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "处理用户加群申请",
+                "parameters": [
+                    {
+                        "description": "处理用户申请信息",
+                        "name": "room",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RoomApply"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
                         }
                     }
                 }

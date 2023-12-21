@@ -3,6 +3,7 @@ package controller
 import (
 	"Cgo/common"
 	"Cgo/front/models"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,6 +12,7 @@ func RoomController(r *gin.RouterGroup) {
 	r.GET("/getRoomApply", common.HandlerFunc(getRoomApply))
 	r.POST("/applyJoinRoom", common.HandlerFunc(applyJoinRoom))
 	r.POST("/handleRoomApplication", common.HandlerFunc(handleRoomApplication))
+	r.GET("/getRoomUsers", common.HandlerFunc(getRoomUsers))
 }
 
 // @Summary 创建房间
@@ -89,4 +91,25 @@ func handleRoomApplication(ctx *gin.Context) common.Result {
 		return common.R.Fail(err.Error())
 	}
 	return common.R.Success("处理成功")
+}
+
+// @Summary 获取聊天群中的所有用户
+// @Schemes
+// @Description 获取所有用户的信息
+// @Tags 前端房间接口
+// @Param room_id query string true "群组id"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[models.Users]
+// @Router /front/room/getRoomUsers [get]
+func getRoomUsers(ctx *gin.Context) common.Result {
+	room_id := ctx.Query("room_id")
+	if room_id == "" {
+		return common.R.Fail("群组id不能为空")
+	}
+	userArr, err := RoomService.GetRoomUsers(room_id)
+	if err != nil {
+		return common.R.Fail(err.Error())
+	}
+	return common.R.Success(userArr)
 }

@@ -5,8 +5,7 @@ import (
 	"Cgo/global"
 )
 
-type roomDao struct {
-}
+type roomDao struct{}
 
 var RoomDao = roomDao{}
 
@@ -39,5 +38,11 @@ func (roomDao) HandleRoomApply(apply models.RoomApply) error {
 	}
 	//如果是同意申请，则把用户加入房间
 
+	return nil
+}
+func (roomDao) GetRoomUsers(userArr *[]models.Users, room_id string) error {
+	if err := global.DB.Where("room_id = ?", room_id).Find(userArr).Error; err != nil {
+		return err
+	}
 	return nil
 }

@@ -212,6 +212,72 @@ const docTemplate = `{
                 }
             }
         },
+        "/front/room/getRoomUsers": {
+            "get": {
+                "description": "获取所有用户的信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "获取聊天群中的所有用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "群组id",
+                        "name": "room_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/room/handleRoomApplication": {
+            "post": {
+                "description": "处理用户加群申请",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端房间接口"
+                ],
+                "summary": "处理用户加群申请",
+                "parameters": [
+                    {
+                        "description": "处理用户申请信息",
+                        "name": "room",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RoomApply"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
+                        }
+                    }
+                }
+            }
+        },
         "/front/user/addFriend": {
             "post": {
                 "description": "请求添加好友",
@@ -664,7 +730,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0 版本",
-	Host:             "localhost:8080",
+	Host:             "159.75.155.236:8080",
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "Im在线通信系统接口文档",

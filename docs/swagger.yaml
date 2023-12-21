@@ -134,7 +134,7 @@ definitions:
     - password
     - sex
     type: object
-host: localhost:8080
+host: 159.75.155.236:8080
 info:
   contact: {}
   description: im在线通信系统前后台接口文档
@@ -267,6 +267,49 @@ paths:
           schema:
             $ref: '#/definitions/common.RT-models_RoomApply'
       summary: 获取房间的申请信息
+      tags:
+      - 前端房间接口
+  /front/room/getRoomUsers:
+    get:
+      consumes:
+      - application/json
+      description: 获取所有用户的信息
+      parameters:
+      - description: 群组id
+        in: query
+        name: room_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-models_Users'
+      summary: 获取聊天群中的所有用户
+      tags:
+      - 前端房间接口
+  /front/room/handleRoomApplication:
+    post:
+      consumes:
+      - application/json
+      description: 处理用户加群申请
+      parameters:
+      - description: 处理用户申请信息
+        in: body
+        name: room
+        required: true
+        schema:
+          $ref: '#/definitions/models.RoomApply'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-string'
+      summary: 处理用户加群申请
       tags:
       - 前端房间接口
   /front/user/addFriend:
