@@ -41,7 +41,9 @@ func (roomDao) HandleRoomApply(apply models.RoomApply) error {
 	return nil
 }
 func (roomDao) GetRoomUsers(userArr *[]models.Users, room_id string) error {
-	if err := global.DB.Where("room_id = ?", room_id).Find(userArr).Error; err != nil {
+	//select  * from user_room as ur inner join users as u on ur.user_id = u.id where ur.room_id = 1
+	sql := "select  * from user_room as ur inner join users as u on ur.user_id = u.id where ur.room_id = ?"
+	if err := global.DB.Raw(sql, room_id).Scan(userArr).Error; err != nil {
 		return err
 	}
 	return nil

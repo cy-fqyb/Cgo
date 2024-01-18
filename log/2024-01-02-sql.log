@@ -1,0 +1,6 @@
+
+2024/01/02 22:08:56 E:/go/Cgo/front/dao/RoomDao.go:46 SLOW SQL >= 200ms
+[234.596ms] [rows:1] select  * from user_room as ur inner join users as u on ur.user_id = u.id where ur.room_id = '1'
+
+2024/01/02 22:10:57 E:/go/Cgo/front/dao/RoomDao.go:46
+[191.188ms] [rows:2] select  * from user_room as ur inner join users as u on ur.user_id = u.id where ur.room_id = '1'

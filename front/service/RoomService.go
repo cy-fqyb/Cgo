@@ -5,8 +5,7 @@ import (
 	"errors"
 )
 
-type roomService struct {
-}
+type roomService struct{}
 
 var RoomService = roomService{}
 

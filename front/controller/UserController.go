@@ -16,6 +16,7 @@ func UserController(r *gin.RouterGroup) {
 	r.POST("/handleApplication", common.HandlerFunc(handleApplication))
 	r.POST("/deleteFriend", common.HandlerFunc(deleteFriend))
 	r.POST("/addFriend", common.HandlerFunc(addFriend))
+	r.POST("/updateUserInfo", common.HandlerFunc(updateUserInfo))
 }
 
 // @Summary 用户登录接口
@@ -165,4 +166,23 @@ func addFriend(ctx *gin.Context) common.Result {
 		return common.R.Fail("添加失败: " + err.Error())
 	}
 	return common.R.Success("添加成功")
+}
+
+// @Summary 修改用户信息
+// @Description 修改用户信息
+// @Tags 前端用户接口
+// @Param user body models.Users true "用户信息"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[string]
+// @Router /front/user/updateUserInfo [post]
+func updateUserInfo(ctx *gin.Context) common.Result {
+	var user models.Users
+	if err := ctx.ShouldBindJSON(&user); err != nil {
+		return common.R.Fail("参数错误: " + err.Error())
+	}
+	if err := UserService.UpdateUserInfo(user); err != nil {
+		return common.R.Fail("修改失败: " + err.Error())
+	}
+	return common.R.Success("修改成功")
 }

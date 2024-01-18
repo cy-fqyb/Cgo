@@ -72,3 +72,11 @@ func (receiver userService) RequestAddFriend(userId string, friendId string) err
 	}
 	return errors.New("请求失败")
 }
+
+// 修改用户信息
+func (receiver userService) UpdateUserInfo(user models.Users) error {
+	if UserDao.UpdateUserInfo(user) {
+		return nil
+	}
+	return errors.New("修改失败")
+}

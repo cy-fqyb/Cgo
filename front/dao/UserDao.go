@@ -100,3 +100,12 @@ func (userDao) RequestAddFriend(userId, friendId string) bool {
 		return false
 	}
 }
+
+// 修改用户信息
+func (userDao) UpdateUserInfo(user models.Users) bool {
+	if r := global.DB.Model(&user).Updates(user); r.RowsAffected > 0 {
+		return true
+	} else {
+		return false
+	}
+}
