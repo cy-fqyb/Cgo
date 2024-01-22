@@ -1,0 +1,10 @@
+[
+	{
+		"itemId": "3000100",
+		"itemName": "HR-3白细胞",
+		"reportDetails": "25.1",
+		"itemUnit": "*10^9/L",
+		"reportAbnormalSign": "H",
+		"remark": "3.5-9.5"
+	}
+]

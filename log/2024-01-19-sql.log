@@ -1,0 +1,30 @@
+
+2024/01/19 14:07:12 E:/go/Cgo/front/dao/MsgDao.go:41 SLOW SQL >= 200ms
+[1594.061ms] [rows:0] SELECT u.id, u.name, count(*) as msg_count FROM msg as m inner join users as u on m.from_id = u.id WHERE m.create_time > '2024-01-16 14:07:10.875' GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 14:07:19 E:/go/Cgo/front/dao/MsgDao.go:41 SLOW SQL >= 200ms
+[754.216ms] [rows:0] SELECT u.id, u.name, count(*) as msg_count FROM msg as m inner join users as u on m.from_id = u.id WHERE m.create_time > '2024-01-16 14:07:18.407' GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 14:08:33 E:/go/Cgo/front/dao/MsgDao.go:40
+[130.470ms] [rows:1] SELECT u.id, u.name, count(*) as msg_count FROM msg as m inner join users as u on m.from_id = u.id GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:23:18 E:/go/Cgo/front/dao/MsgDao.go:40
+[175.460ms] [rows:0] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '1'  GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:23:27 E:/go/Cgo/front/dao/MsgDao.go:40
+[161.513ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2'  GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:33:13 E:/go/Cgo/front/dao/MsgDao.go:40 SLOW SQL >= 200ms
+[1763.546ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2'  GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:34:19 E:/go/Cgo/front/dao/MsgDao.go:40
+[182.419ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:34:21 E:/go/Cgo/front/dao/MsgDao.go:40
+[150.246ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:34:35 E:/go/Cgo/front/dao/MsgDao.go:40
+[156.739ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/19 15:39:12 E:/go/Cgo/front/dao/MsgDao.go:40 SLOW SQL >= 200ms
+[1762.027ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc

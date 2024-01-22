@@ -1,0 +1,12 @@
+
+2024/01/22 16:07:53 E:/go/Cgo/front/dao/MsgDao.go:36 SLOW SQL >= 200ms
+[1668.637ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/22 16:08:51 E:/go/Cgo/front/dao/MsgDao.go:36
+[163.849ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/22 16:10:47 E:/go/Cgo/front/dao/MsgDao.go:36
+[168.975ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count, u.avatar FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
+
+2024/01/22 16:11:24 E:/go/Cgo/front/dao/MsgDao.go:36
+[169.387ms] [rows:2] SELECT u.id, u.name, count(*) as msg_count, u.avatar FROM msg as m left join users as u on m.from_id = u.id WHERE m.to_id = '2' and m.is_read = 0 GROUP BY u.id, u.name ORDER BY msg_count desc
