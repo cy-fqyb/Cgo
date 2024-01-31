@@ -14,3 +14,12 @@ func (msgService) GetMsgNum(user_id string) ([]models.MsgNum, error) {
 	}
 	return results, nil
 }
+
+// 获取用户未读消息列表
+func (msgService) GetMsgHistory(from_id string, user_id string) ([]models.MsgHistory, error) {
+	results, err := MsgDao.GetMsgHistory(from_id, user_id)
+	if err != nil {
+		return nil, err
+	}
+	return results, nil
+}

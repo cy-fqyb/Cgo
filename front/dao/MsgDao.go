@@ -38,3 +38,17 @@ func (msgDao) GetMsgNum(user_id string) ([]models.MsgNum, error) {
 	}
 	return results, nil
 }
+
+// 获取用户和指定好友或群组2天内的聊天记录
+func (msgDao) GetMsgHistory(from_id, user_id string) ([]models.MsgHistory, error) {
+	var results []models.MsgHistory
+	if err := global.DB.Table("msg as m").
+		Select("m.id, m.from_id, m.to_id, m.msg, m.create_time, m.is_read, u.name, u.avatar").
+		Joins("left join users as u on m.from_id = u.id").
+		Where("m.create_time > DATE_SUB(NOW(), INTERVAL 2 DAY) and ((m.from_id = ? and m.to_id = ?) or (m.from_id = ? and m.to_id = ?))", from_id, user_id, user_id, from_id).
+		Order("m.create_time asc").
+		Scan(&results).Error; err != nil {
+		return nil, err
+	}
+	return results, nil
+}
