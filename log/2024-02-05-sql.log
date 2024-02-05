@@ -1,0 +1,3 @@
+
+2024/02/05 10:44:52 E:/go/Cgo/front/dao/UserDao.go:25 SLOW SQL >= 200ms
+[1366.469ms] [rows:1] INSERT INTO `users` (`id`,`name`,`password`,`email`,`sex`,`avatar`,`status`,`synopsis`,`create_time`,`update_time`) VALUES ('5eeac5f2420d8b95ee0f07909bf5b795','思江引之位北','nulla esse','2466579213@qq.com','男','http://dummyimage.com/100x100',26,'minim','2024-02-05 10:44:52.641','2024-02-05 10:44:52.641')

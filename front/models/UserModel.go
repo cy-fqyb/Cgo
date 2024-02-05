@@ -16,6 +16,11 @@ type Users struct {
 	UpdateTime time.Time `json:"update_time,omitempty" gorm:"autoUpdateTime" `
 }
 
+type UserRegister struct {
+	Users
+	EmailCode string `json:"code" binding:"required"`
+}
+
 //用户好友表
 type UserFriend struct {
 	UserId     string    `json:"user_id"`

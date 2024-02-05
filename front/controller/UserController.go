@@ -4,6 +4,8 @@ import (
 	"Cgo/common"
 	"Cgo/front/dto"
 	"Cgo/front/models"
+	"Cgo/global"
+	"context"
 
 	"github.com/gin-gonic/gin"
 )
@@ -45,18 +47,25 @@ func login(ctx *gin.Context) common.Result {
 // @Schemes
 // @Description 用户注册接口
 // @Tags 前端用户接口
-// @Param user body models.Users true "注册用户的信息"     //参数 ：@Param 参数名 位置（query 或者 path或者 body） 类型 是否必需 注释
+// @Param user body models.UserRegister true "注册用户的信息"     //参数 ：@Param 参数名 位置（query 或者 path或者 body） 类型 是否必需 注释
 // @Accept json
 // @Produce json
 // @Success 200 {object} common.RT[string] 返回结果 200 类型（object就是
 // @Router /front/user/register [post]
 func register(ctx *gin.Context) common.Result {
 	//TODO: 实现邮箱验证码注册用户
-	var user models.Users
+	var user models.UserRegister
 	if err := ctx.ShouldBindJSON(&user); err != nil {
 		return common.R.Fail(err.Error())
 	}
-	if err := UserService.Register(user); err != nil {
+	emailCode, err := global.Rdb.Get(context.Background(), user.Email).Result()
+	if err != nil {
+		return common.R.Fail("验证码已过期")
+	}
+	if emailCode != user.EmailCode {
+		return common.R.Fail("验证码错误")
+	}
+	if err := UserService.Register(user.Users); err != nil {
 		return common.R.Fail("注册失败")
 	}
 	return common.R.Success("注册成功")
