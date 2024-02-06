@@ -542,6 +542,38 @@
                 }
             }
         },
+        "/front/user/searchUser": {
+            "get": {
+                "description": "搜索用户",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "搜索用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-array_models_Users"
+                        }
+                    }
+                }
+            }
+        },
         "/front/user/updateUserInfo": {
             "post": {
                 "description": "修改用户信息",

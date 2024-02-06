@@ -3,6 +3,7 @@ package service
 import (
 	"Cgo/front/dto"
 	"Cgo/front/models"
+	"Cgo/global"
 	"Cgo/utils"
 	"errors"
 )
@@ -79,4 +80,17 @@ func (receiver userService) UpdateUserInfo(user models.Users) error {
 		return nil
 	}
 	return errors.New("修改失败")
+}
+
+// 搜索用户
+func (receiver userService) SearchUser(name string) ([]models.Users, error) {
+	user := models.Users{
+		Name: name,
+	}
+	u, err := UserDao.SearchUser(&user)
+	if err != nil {
+		return nil, err
+	}
+	global.Logger.Info(u)
+	return u, nil
 }

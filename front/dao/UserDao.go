@@ -109,3 +109,13 @@ func (userDao) UpdateUserInfo(user models.Users) bool {
 		return false
 	}
 }
+
+// 搜索用户
+func (userDao) SearchUser(user *models.Users) ([]models.Users, error) {
+	var users []models.Users
+	if r := global.DB.Where("name like ?", "%"+user.Name+"%").Find(&users); r.RowsAffected > 0 {
+		return users, nil
+	} else {
+		return nil, r.Error
+	}
+}

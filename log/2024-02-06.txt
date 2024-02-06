@@ -25,3 +25,7 @@
 {"level":"ERROR","time":"2024-02-06 11:37:48","msg":"发送邮件失败:EOF"}
 {"level":"ERROR","time":"2024-02-06 11:40:08","msg":"发送邮件失败:EOF"}
 {"level":"INFO","time":"2024-02-06 11:46:25","msg":"邮件发送成功"}
+{"level":"ERROR","time":"2024-02-06 15:03:10","msg":"redis connect ping errordial tcp 159.75.155.236:6379: i/o timeout"}
+{"level":"INFO","time":"2024-02-06 15:09:54","msg":"[]"}
+{"level":"INFO","time":"2024-02-06 15:10:55","msg":"[{5eeac5f2420d8b95ee0f07909bf5b795 admin 123456 2466579213@qq.com 男  0  2024-02-06 13:46:51 +0800 CST 2024-02-06 13:46:51 +0800 CST}]"}
+{"level":"INFO","time":"2024-02-06 15:11:05","msg":"[{5eeac5f2420d8b95ee0f07909bf5b795 admin 123456 2466579213@qq.com 男  0  2024-02-06 13:46:51 +0800 CST 2024-02-06 13:46:51 +0800 CST}]"}

@@ -1,3 +1,27 @@
 
 2024/02/06 14:05:27 E:/go/Cgo/front/dao/UserDao.go:16
 [159.634ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
+
+2024/02/06 15:06:50 E:/go/Cgo/front/dao/UserDao.go:116 Error 1054 (42S22): Unknown column 'username' in 'where clause'
+[1568.668ms] [rows:0] SELECT * FROM `users` WHERE username like '%admin%'
+
+2024/02/06 15:07:18 E:/go/Cgo/front/dao/UserDao.go:116 SLOW SQL >= 200ms
+[853.083ms] [rows:1] SELECT * FROM `users` WHERE name like '%admin%'
+
+2024/02/06 15:08:38 E:/go/Cgo/front/dao/UserDao.go:116 SLOW SQL >= 200ms
+[746.303ms] [rows:1] SELECT * FROM `users` WHERE name like '%admin%'
+
+2024/02/06 15:09:15 E:/go/Cgo/front/dao/UserDao.go:116
+[162.313ms] [rows:1] SELECT * FROM `users` WHERE name like '%admin%'
+
+2024/02/06 15:09:54 E:/go/Cgo/front/dao/UserDao.go:116
+[163.938ms] [rows:1] SELECT * FROM `users` WHERE name like '%admin%'
+
+2024/02/06 15:10:55 E:/go/Cgo/front/dao/UserDao.go:116 SLOW SQL >= 200ms
+[833.948ms] [rows:1] SELECT * FROM `users` WHERE name like '%admin%'
+
+2024/02/06 15:11:05 E:/go/Cgo/front/dao/UserDao.go:116
+[159.428ms] [rows:1] SELECT * FROM `users` WHERE name like '%ad%'
+
+2024/02/06 17:40:32 E:/go/Cgo/front/dao/UserDao.go:16 SLOW SQL >= 200ms
+[1227.860ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1
