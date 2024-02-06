@@ -1,0 +1,3 @@
+
+2024/02/06 14:05:27 E:/go/Cgo/front/dao/UserDao.go:16
+[159.634ms] [rows:1] SELECT * FROM `users` WHERE `users`.`password` = '123456' AND `users`.`email` = 'cy@qq.com' ORDER BY `users`.`id` LIMIT 1

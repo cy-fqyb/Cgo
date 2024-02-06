@@ -5,6 +5,7 @@ import (
 	"Cgo/front/dto"
 	"Cgo/front/models"
 	"Cgo/global"
+	"Cgo/utils"
 	"context"
 
 	"github.com/gin-gonic/gin"
@@ -40,7 +41,11 @@ func login(ctx *gin.Context) common.Result {
 	if err != nil {
 		return common.R.Fail("账号或密码错误")
 	}
-	return common.R.Success(user)
+	token := utils.CreateToken(user.Email)
+	return common.R.Success(gin.H{
+		"token": token,
+		"user":  user,
+	})
 }
 
 // @Summary 用户注册接口

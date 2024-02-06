@@ -1,0 +1,27 @@
+{"level":"INFO","time":"2024-02-06 10:29:39","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2024-02-06 10:29:39","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2024-02-06 10:29:39","msg":"服务器停止"}
+{"level":"INFO","time":"2024-02-06 10:43:11","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"INFO","time":"2024-02-06 10:43:41","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2024-02-06 10:43:41","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2024-02-06 10:43:41","msg":"服务器停止"}
+{"level":"INFO","time":"2024-02-06 11:12:20","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:12:41","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:15:33","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:15:53","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:18:07","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:18:07","msg":"无法启用TLS:454 Command not permitted when TLS active"}
+{"level":"INFO","time":"2024-02-06 11:19:31","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:19:51","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:21:36","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:21:56","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:22:38","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:22:58","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:26:45","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:26:45","msg":"无法连接到SMTP服务器:tls: first record does not look like a TLS handshake"}
+{"level":"INFO","time":"2024-02-06 11:27:20","msg":"发送邮件给:2466579213@qq.com"}
+{"level":"ERROR","time":"2024-02-06 11:27:41","msg":"发送邮件失败:EOF"}
+{"level":"ERROR","time":"2024-02-06 11:32:32","msg":"发送邮件失败:EOF"}
+{"level":"ERROR","time":"2024-02-06 11:37:48","msg":"发送邮件失败:EOF"}
+{"level":"ERROR","time":"2024-02-06 11:40:08","msg":"发送邮件失败:EOF"}
+{"level":"INFO","time":"2024-02-06 11:46:25","msg":"邮件发送成功"}

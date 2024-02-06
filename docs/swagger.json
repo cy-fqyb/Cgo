@@ -104,6 +104,38 @@
                 }
             }
         },
+        "/front/msg/getMsgNum": {
+            "get": {
+                "description": "获取用户未读消息数量",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端消息接口"
+                ],
+                "summary": "获取用户未读消息数量",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_MsgNum"
+                        }
+                    }
+                }
+            }
+        },
         "/front/room/applyJoinRoom": {
             "post": {
                 "description": "申请加入房间",
@@ -496,6 +528,40 @@
                         "in": "body",
                         "required": true,
                         "schema": {
+                            "$ref": "#/definitions/models.UserRegister"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-string"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/user/updateUserInfo": {
+            "post": {
+                "description": "修改用户信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "修改用户信息",
+                "parameters": [
+                    {
+                        "description": "用户信息",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
                             "$ref": "#/definitions/models.Users"
                         }
                     }
@@ -523,6 +589,20 @@
                     "items": {
                         "$ref": "#/definitions/models.Users"
                     }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.RT-models_MsgNum": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.MsgNum"
                 },
                 "msg": {
                     "type": "string"
@@ -617,6 +697,23 @@
                 }
             }
         },
+        "models.MsgNum": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "msgCount": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "models.Room": {
             "type": "object",
             "properties": {
@@ -671,6 +768,51 @@
                     "type": "string"
                 },
                 "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UserRegister": {
+            "type": "object",
+            "required": [
+                "code",
+                "email",
+                "name",
+                "password",
+                "sex"
+            ],
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "create_time": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "synopsis": {
+                    "type": "string"
+                },
+                "update_time": {
                     "type": "string"
                 }
             }
