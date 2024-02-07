@@ -1,0 +1,26 @@
+
+2024/02/07 17:31:50 E:/go/Cgo/front/dao/MsgDao.go:50 SLOW SQL >= 200ms
+[580.129ms] [rows:2] SELECT m.id, m.from_id, m.to_id, m.msg, m.create_time, m.is_read, u.name, u.avatar FROM msg as m left join users as u on m.from_id = u.id WHERE m.create_time > DATE_SUB(NOW(), INTERVAL 2 DAY) and ((m.from_id = '2' and m.to_id = '1') or (m.from_id = '1' and m.to_id = '2')) ORDER BY m.create_time asc
+
+2024/02/07 17:42:22 E:/go/Cgo/front/dao/MsgDao.go:65
+[165.484ms] [rows:0] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, msg.create_time AS time, u.avatar as avatar, daily_message_counts.message_count as 'msg_count' FROM users as u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM msg WHERE DATE(create_time) = CURDATE() GROUP BY from_id) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '1' and DATE(msg.create_time) = CURDATE() ORDER BY msg.create_time desc
+
+2024/02/07 17:55:58 E:/go/Cgo/front/dao/MsgDao.go:65 sql: expected 0 arguments, got 1
+[723.024ms] [rows:-] 
+	SELECT u.id AS friend_id, u.name AS friend_name, msg.msg AS content, msg.create_time AS time, u.avatar AS avatar, daily_message_counts.message_count AS 'msg_count' 
+	FROM users u LEFT JOIN msg ON msg.from_id = u.id 
+	LEFT JOIN(SELECT from_id, COUNT(*) AS message_count FROM msg WHERE DATE(create_time) = CURDATE() 
+	GROUP BY from_id) AS daily_message_counts ON u.id = daily_message_counts.from_id 
+	WHERE msg.to_id = 2 AND DATE(msg.create_time) = CURDATE()  AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id ); ;
+
+2024/02/07 18:03:01 E:/go/Cgo/front/dao/MsgDao.go:72
+[153.174ms] [rows:0] SELECT u.id AS friend_id, u.name AS friend_name, msg.msg AS content, msg.create_time AS time, u.avatar AS avatar, dmc.message_count AS msg_count FROM users u LEFT JOIN msg ON msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = '2024-02-07' GROUP BY `from_id`) AS dmc ON u.id = dmc.from_id WHERE (msg.to_id = '1' AND DATE(msg.create_time) = '2024-02-07') AND msg.create_time = false
+
+2024/02/07 18:03:35 E:/go/Cgo/front/dao/MsgDao.go:72
+[165.173ms] [rows:0] SELECT u.id AS friend_id, u.name AS friend_name, msg.msg AS content, msg.create_time AS time, u.avatar AS avatar, dmc.message_count AS msg_count FROM users u LEFT JOIN msg ON msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = '2024-02-07' GROUP BY `from_id`) AS dmc ON u.id = dmc.from_id WHERE (msg.to_id = '2' AND DATE(msg.create_time) = '2024-02-07') AND msg.create_time = false
+
+2024/02/07 18:04:00 E:/go/Cgo/front/dao/MsgDao.go:72 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT MAX(create_time) FROM `msg` WHERE msg.from_id = u.id' at line 1
+[132.125ms] [rows:-] SELECT u.id AS friend_id, u.name AS friend_name, msg.msg AS content, msg.create_time AS time, u.avatar AS avatar, dmc.message_count AS msg_count FROM users u LEFT JOIN msg ON msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = '2024-02-07' GROUP BY `from_id`) AS dmc ON u.id = dmc.from_id WHERE (msg.to_id = '2' AND DATE(msg.create_time) = '2024-02-07') AND msg.create_time = SELECT MAX(create_time) FROM `msg` WHERE msg.from_id = u.id
+
+2024/02/07 22:14:41 E:/go/Cgo/front/dao/MsgDao.go:72 Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT MAX(create_time) FROM `msg` WHERE msg.from_id = u.id' at line 1
+[161.504ms] [rows:-] SELECT u.id AS friend_id, u.name AS friend_name, msg.msg AS content, msg.create_time AS time, u.avatar AS avatar, dmc.message_count AS msg_count FROM users u LEFT JOIN msg ON msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = '2024-02-07' GROUP BY `from_id`) AS dmc ON u.id = dmc.from_id WHERE (msg.to_id = '2' AND DATE(msg.create_time) = '2024-02-07') AND msg.create_time = SELECT MAX(create_time) FROM `msg` WHERE msg.from_id = u.id

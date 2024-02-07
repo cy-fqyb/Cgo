@@ -1,34 +1,58 @@
+-- Active: 1700445944039@@159.75.155.236@3306@cgo
+
 SELECT
-    lis.patient_id AS "patientId",
-    '' AS "series",
-    '' AS "admissionId",
-    lis.report_id AS "reportId",
-    lis.report_name AS "reportName",
-    to_char (
-        lis.report_date, 'yyyy-MM-dd HH24:mm:ss'
-    ) AS "reportDate",
-    lis.reporter_name as "reporterName",
-    lis.reporter_code as "reporterCode",
-    lisdetail.item_id as "itemId",
-    lisdetail.item_name as "itemName",
-    lisdetail.report_details as "reportDetails",
-    lisdetail.report_abnormal_sign as "reportAbnormalSign",
-    lisdetail.high_max_value as "highMaxValue",
-    lisdetail.low_max_value as "lowMaxValue",
-    lisdetail.remark as "remark"
-FROM
-    v_yyt_mz_lis lis
-    inner join v_yyt_mz_lis_detail lisdetail on lis.report_id = lisdetail.report_id
+    u.id AS friend_id,
+    u.name AS friend_name,
+    msg.msg AS content,
+    msg.create_time AS time,
+    u.avatar AS avatar
+FROM users u
+    LEFT JOIN msg ON msg.from_id = u.id
 WHERE
-    1 != 1 < if test = 'patientId !=null and patientId !=""' >
-    OR lis.patient_id = #{patientId}
-    < / if > < if test = "StartDate != null and StartDate != ''" >
-    AND lis.report_date & gt;
+    msg.create_time = (
+        SELECT MAX(create_time)
+        FROM msg
+    )
+    AND msg.to_id = 2;
 
-=to_date(#{StartDate} || ' 00:00:00','yyyy-mm-dd hh24:mi:ss')
-  </if>
-  	<if test="EndDate != null and EndDate != ''">
-    AND lis.report_date&lt;
+SELECT
+    u.id AS friend_id,
+    u.name AS friend_name,
+    COUNT(msg.id) AS message_count
+FROM users u
+    LEFT JOIN msg ON msg.from_id = u.id
+WHERE
+    DATE(msg.create_time) = CURDATE()
+GROUP BY
+    u.id,
+    u.name;
 
-=to_date(#{EndDate} || ' 23:59:59','yyyy-mm-dd hh24:mi:ss')
-  </if>
+select
+    u.id as friend_id,
+    u.name as friend_name,
+    msg.msg as content,
+    msg.create_time AS time,
+    u.avatar as avatar,
+    daily_message_counts.message_count as 'msg_count'
+from
+    users u
+    left join msg on msg.from_id = u.id
+    LEFT JOIN (
+        SELECT from_id, COUNT(*) AS message_count
+        FROM msg
+        WHERE
+            DATE(create_time) = CURDATE()
+        GROUP BY
+            from_id
+    ) AS daily_message_counts ON u.id = daily_message_counts.from_id
+WHERE
+    msg.to_id = 2
+    AND DATE(msg.create_time) = CURDATE() -- 仅包括今天发送的消息
+    AND msg.create_time = (
+        SELECT MAX(create_time)
+        FROM msg
+        WHERE
+            msg.from_id = u.id
+    );
+
+;

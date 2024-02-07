@@ -23,3 +23,12 @@ func (msgService) GetMsgHistory(from_id string, user_id string) ([]models.MsgHis
 	}
 	return results, nil
 }
+
+// 获取用户好友消息列表
+func (msgService) GetMsgList(user_id string) ([]models.MsgList, error) {
+	results, err := MsgDao.GetMsgList(user_id)
+	if err != nil {
+		return nil, err
+	}
+	return results, nil
+}
