@@ -104,6 +104,77 @@
                 }
             }
         },
+        "/front/msg/getMsgHistory": {
+            "get": {
+                "description": "获取用户消息历史记录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端消息接口"
+                ],
+                "summary": "获取用户消息历史记录",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "好友id",
+                        "name": "from_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_MsgHistory"
+                        }
+                    }
+                }
+            }
+        },
+        "/front/msg/getMsgList": {
+            "get": {
+                "description": "获取用户消息列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端消息接口"
+                ],
+                "summary": "获取用户消息列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_MsgList"
+                        }
+                    }
+                }
+            }
+        },
         "/front/msg/getMsgNum": {
             "get": {
                 "description": "获取用户未读消息数量",
@@ -627,6 +698,34 @@
                 }
             }
         },
+        "common.RT-models_MsgHistory": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.MsgHistory"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.RT-models_MsgList": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.MsgList"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "common.RT-models_MsgNum": {
             "type": "object",
             "properties": {
@@ -726,6 +825,58 @@
                 },
                 "password": {
                     "type": "string"
+                }
+            }
+        },
+        "models.MsgHistory": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "type": "string"
+                },
+                "fromId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isRead": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "toId": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MsgList": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "type": "string"
+                },
+                "friendId": {
+                    "type": "string"
+                },
+                "friendName": {
+                    "type": "string"
+                },
+                "msgCount": {
+                    "type": "integer"
                 }
             }
         },

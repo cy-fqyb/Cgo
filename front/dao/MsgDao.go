@@ -47,7 +47,7 @@ func (msgDao) GetMsgList(user_id string) ([]models.MsgList, error) {
 		Group("from_id")
 
 	err := global.DB.Table("users u").
-		Select("u.id as friend_id, u.name as friend_name, msg.msg as content, msg.create_time AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count").
+		Select("u.id as friend_id, u.name as friend_name, msg.msg as content, DATE_FORMAT(msg.create_time, '%H:%i') AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count").
 		Joins("left join msg on msg.from_id = u.id").
 		Joins("LEFT JOIN (?) AS daily_message_counts ON u.id = daily_message_counts.from_id", subQuery).
 		Where("msg.to_id = ? AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)", user_id).

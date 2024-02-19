@@ -1,0 +1,8 @@
+{"level":"ERROR","time":"2024-02-09 15:09:58","msg":"Mysql connect faileddial tcp 159.75.155.236:3306: connectex: A socket operation was attempted to an unreachable host."}
+{"level":"ERROR","time":"2024-02-09 15:09:58","msg":"redis connect ping errordial tcp 159.75.155.236:6379: connectex: A socket operation was attempted to an unreachable host."}
+{"level":"INFO","time":"2024-02-09 15:11:06","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2024-02-09 15:11:06","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2024-02-09 15:11:06","msg":"服务器停止"}
+{"level":"INFO","time":"2024-02-09 15:11:46","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2024-02-09 15:11:46","msg":"在线用户连接id删除成功，删除个数为:0"}
+{"level":"INFO","time":"2024-02-09 15:11:46","msg":"服务器停止"}

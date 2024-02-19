@@ -10,6 +10,24 @@ definitions:
       msg:
         type: string
     type: object
+  common.RT-models_MsgHistory:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.MsgHistory'
+      msg:
+        type: string
+    type: object
+  common.RT-models_MsgList:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.MsgList'
+      msg:
+        type: string
+    type: object
   common.RT-models_MsgNum:
     properties:
       code:
@@ -76,6 +94,40 @@ definitions:
     required:
     - email
     - password
+    type: object
+  models.MsgHistory:
+    properties:
+      avatar:
+        type: string
+      content:
+        type: string
+      createTime:
+        type: string
+      fromId:
+        type: string
+      id:
+        type: string
+      isRead:
+        type: integer
+      name:
+        type: string
+      toId:
+        type: string
+    type: object
+  models.MsgList:
+    properties:
+      avatar:
+        type: string
+      content:
+        type: string
+      createTime:
+        type: string
+      friendId:
+        type: string
+      friendName:
+        type: string
+      msgCount:
+        type: integer
     type: object
   models.MsgNum:
     properties:
@@ -255,6 +307,53 @@ paths:
       summary: 文件上传接口
       tags:
       - 前端通用接口
+  /front/msg/getMsgHistory:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户消息历史记录
+      parameters:
+      - description: 用户id
+        in: query
+        name: user_id
+        required: true
+        type: string
+      - description: 好友id
+        in: query
+        name: from_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-models_MsgHistory'
+      summary: 获取用户消息历史记录
+      tags:
+      - 前端消息接口
+  /front/msg/getMsgList:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户消息列表
+      parameters:
+      - description: 用户id
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-models_MsgList'
+      summary: 获取用户消息列表
+      tags:
+      - 前端消息接口
   /front/msg/getMsgNum:
     get:
       consumes:

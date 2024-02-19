@@ -1,0 +1,12 @@
+
+2024/02/19 17:40:14 E:/go/Cgo/front/dao/MsgDao.go:54 SLOW SQL >= 200ms
+[875.273ms] [rows:1] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, msg.create_time AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count FROM users u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = CURDATE() GROUP BY `from_id`) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '2' AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)
+
+2024/02/19 17:57:14 E:/go/Cgo/front/dao/MsgDao.go:54 SLOW SQL >= 200ms
+[751.789ms] [rows:1] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, DATE_FORMAT(msg.create_time, '%Y-%m-%d %H:%i:%s') AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count FROM users u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = CURDATE() GROUP BY `from_id`) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '2' AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)
+
+2024/02/19 17:58:32 E:/go/Cgo/front/dao/MsgDao.go:54
+[163.719ms] [rows:1] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, DATE_FORMAT(msg.create_time, '%H:%i:%s') AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count FROM users u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = CURDATE() GROUP BY `from_id`) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '2' AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)
+
+2024/02/19 17:58:54 E:/go/Cgo/front/dao/MsgDao.go:54
+[167.181ms] [rows:1] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, DATE_FORMAT(msg.create_time, '%H:%i') AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count FROM users u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = CURDATE() GROUP BY `from_id`) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '2' AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)

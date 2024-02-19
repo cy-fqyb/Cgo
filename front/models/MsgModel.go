@@ -21,7 +21,7 @@ type MsgList struct {
 	FriendID   string `gorm:"column:friend_id" json:"friendId"`
 	FriendName string `gorm:"column:friend_name" json:"friendName"`
 	Content    string `gorm:"column:content" json:"content"`
-	CreateTime string `gorm:"column:create_time" json:"createTime"`
+	CreateTime string `gorm:"column:time" json:"createTime"`
 	MsgCount   int    `gorm:"column:msg_count" json:"msgCount"`
 	Avatar     string `gorm:"column:avatar" json:"avatar"`
 }

@@ -1,0 +1,6 @@
+
+2024/02/09 15:09:58 E:/go/Cgo/config/db.go:37
+[error] failed to initialize database, got error dial tcp 159.75.155.236:3306: connectex: A socket operation was attempted to an unreachable host.
+
+2024/02/09 15:11:30 E:/go/Cgo/front/dao/MsgDao.go:54 SLOW SQL >= 200ms
+[666.781ms] [rows:0] SELECT u.id as friend_id, u.name as friend_name, msg.msg as content, msg.create_time AS time, u.avatar as avatar, daily_message_counts.message_count as msg_count FROM users u left join msg on msg.from_id = u.id LEFT JOIN (SELECT from_id, COUNT(*) AS message_count FROM `msg` WHERE DATE(create_time) = CURDATE() GROUP BY `from_id`) AS daily_message_counts ON u.id = daily_message_counts.from_id WHERE msg.to_id = '2' AND DATE(msg.create_time) = CURDATE() AND msg.create_time = (SELECT MAX(create_time) FROM msg WHERE msg.from_id = u.id)

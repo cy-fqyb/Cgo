@@ -34,6 +34,16 @@ func getMsgNum(ctx *gin.Context) common.Result {
 	return common.R.Success(results)
 }
 
+// @Summary 获取用户消息历史记录
+// @Schemes
+// @Description 获取用户消息历史记录
+// @Tags 前端消息接口
+// @Param user_id query string true "用户id"
+// @Param from_id query string true "好友id"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[models.MsgHistory]
+// @Router /front/msg/getMsgHistory [get]
 func GetMsgHistory(ctx *gin.Context) common.Result {
 	// 获取用户未读消息数量
 	user_id := ctx.Query("user_id")
@@ -52,6 +62,15 @@ func GetMsgHistory(ctx *gin.Context) common.Result {
 	return common.R.Success(results)
 }
 
+// @Summary 获取用户消息列表
+// @Schemes
+// @Description 获取用户消息列表
+// @Tags 前端消息接口
+// @Param user_id query string true "用户id"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[models.MsgList]
+// @Router /front/msg/getMsgList [get]
 func GetMsgList(ctx *gin.Context) common.Result {
 	// 获取用户未读消息数量
 	user_id := ctx.Query("user_id")
