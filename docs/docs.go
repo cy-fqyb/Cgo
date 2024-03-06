@@ -16,6 +16,29 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/backend/common/onlineUserCount": {
+            "get": {
+                "description": "获取当前在线用户人数",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "后台公共接口"
+                ],
+                "summary": "获取当前在线用户人数",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-int"
+                        }
+                    }
+                }
+            }
+        },
         "/common/email": {
             "get": {
                 "description": "发送邮箱验证码",
@@ -700,6 +723,20 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/models.Users"
                     }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "common.RT-int": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "integer"
                 },
                 "msg": {
                     "type": "string"

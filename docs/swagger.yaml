@@ -10,6 +10,15 @@ definitions:
       msg:
         type: string
     type: object
+  common.RT-int:
+    properties:
+      code:
+        type: integer
+      data:
+        type: integer
+      msg:
+        type: string
+    type: object
   common.RT-models_MsgHistory:
     properties:
       code:
@@ -244,6 +253,21 @@ info:
   title: Im在线通信系统接口文档
   version: 1.0 版本
 paths:
+  /backend/common/onlineUserCount:
+    get:
+      consumes:
+      - application/json
+      description: 获取当前在线用户人数
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.RT-int'
+      summary: 获取当前在线用户人数
+      tags:
+      - 后台公共接口
   /common/email:
     get:
       consumes:
