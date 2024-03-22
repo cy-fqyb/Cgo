@@ -94,3 +94,15 @@ func (receiver userService) SearchUser(name string) ([]models.Users, error) {
 	global.Logger.Info(u)
 	return u, nil
 }
+
+// 获取用户信息
+func (receiver userService) GetUserInfo(userId string) (*models.Users, error) {
+	user := models.Users{
+		Id: userId,
+	}
+	u, err := UserDao.GetUserInfo(&user)
+	if err != nil {
+		return nil, err
+	}
+	return u, nil
+}

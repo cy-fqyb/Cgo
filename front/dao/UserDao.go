@@ -119,3 +119,12 @@ func (userDao) SearchUser(user *models.Users) ([]models.Users, error) {
 		return nil, r.Error
 	}
 }
+
+// 获取用户的个人信息
+func (userDao) GetUserInfo(user *models.Users) (*models.Users, error) {
+	if r := global.DB.Where(user).First(user); r.RowsAffected > 0 {
+		return user, nil
+	} else {
+		return user, r.Error
+	}
+}

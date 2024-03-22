@@ -21,6 +21,7 @@ func UserController(r *gin.RouterGroup) {
 	r.POST("/addFriend", common.HandlerFunc(addFriend))
 	r.POST("/updateUserInfo", common.HandlerFunc(updateUserInfo))
 	r.GET("/searchUser", common.HandlerFunc(searchUser))
+	r.GET("/getUserInformation", common.HandlerFunc(getUserInformation))
 }
 
 // @Summary 用户登录接口
@@ -220,4 +221,24 @@ func searchUser(ctx *gin.Context) common.Result {
 		return common.R.Fail("查询失败: " + err.Error())
 	}
 	return common.R.Success(users)
+}
+
+// @Summary 获取用户个人信息
+// @Description 获取用户个人信息
+// @Tags 前端用户接口
+// @Param userId query string true "用户id"
+// @Accept json
+// @Produce json
+// @Success 200 {object} common.RT[models.Users]
+// @Router /front/user/getUserInformation [get]
+func getUserInformation(ctx *gin.Context) common.Result {
+	userId := ctx.Query("userId")
+	if userId == "" {
+		return common.R.Fail("参数错误")
+	}
+	user, err := UserService.GetUserInfo(userId)
+	if err != nil {
+		return common.R.Fail("查询失败: " + err.Error())
+	}
+	return common.R.Success(user)
 }
