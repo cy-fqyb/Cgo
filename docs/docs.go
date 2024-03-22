@@ -536,6 +536,38 @@ const docTemplate = `{
                 }
             }
         },
+        "/front/user/getUserInformation": {
+            "get": {
+                "description": "获取用户个人信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "前端用户接口"
+                ],
+                "summary": "获取用户个人信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户id",
+                        "name": "userId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/common.RT-models_Users"
+                        }
+                    }
+                }
+            }
+        },
         "/front/user/handleApplication": {
             "post": {
                 "description": "处理用户好友申请",
